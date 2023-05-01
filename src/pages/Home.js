@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
 import Header from '../components/Layout/Header';
 import PrimaryHeading from '../components/UI/PrimaryHeading';
+import { Outlet } from 'react-router-dom';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Fragment>
-      <Header />
       <PrimaryHeading />
     </Fragment>
   );

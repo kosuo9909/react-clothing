@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import styles from './SeasonsPageComponent.module.css';
+import { Link, NavLink } from 'react-router-dom';
 
 const SeasonsPageComponent = () => {
   return (
@@ -7,36 +8,45 @@ const SeasonsPageComponent = () => {
       <div className={styles.containerSeasons}>
         <div className={styles.season}>
           <p className={styles.seasonalParagraph}>spring</p>
-          <img
-            class={styles.img}
-            src={require('../../../images/seasons/spring.webp')}
-            alt='Spring'
-          ></img>
+          <Link to='spring'>
+            {' '}
+            <img
+              class={styles.img}
+              src={require('../../../images/seasons/spring.webp')}
+              alt='Spring'
+            ></img>
+          </Link>
         </div>
 
         <div className={styles.season}>
           <p className={styles.seasonalParagraph}>summer</p>
-          <img
-            class={styles.img}
-            src={require('../../../images/seasons/summer.webp')}
-            alt='Spring'
-          ></img>
+          <Link to='summer'>
+            <img
+              class={styles.img}
+              src={require('../../../images/seasons/summer.webp')}
+              alt='Spring'
+            ></img>
+          </Link>
         </div>
         <div className={styles.season}>
           <p className={styles.seasonalParagraph}>autumn</p>
-          <img
-            class={styles.img}
-            src={require('../../../images/seasons/autumn.webp')}
-            alt='Spring'
-          ></img>
+          <Link to='autumn'>
+            <img
+              class={styles.img}
+              src={require('../../../images/seasons/autumn.webp')}
+              alt='Spring'
+            ></img>
+          </Link>
         </div>
         <div className={styles.season}>
           <p className={styles.seasonalParagraph}>winter</p>
-          <img
-            class={styles.img}
-            src={require('../../../images/seasons/winter.webp')}
-            alt='Spring'
-          ></img>
+          <Link to='winter'>
+            <img
+              class={styles.img}
+              src={require('../../../images/seasons/winter.webp')}
+              alt='Spring'
+            ></img>
+          </Link>
         </div>
       </div>
     </Fragment>

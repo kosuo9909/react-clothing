@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
@@ -6,24 +6,24 @@ const Navigation = () => {
     <nav>
       <ul className={styles.navigation}>
         <li>
-          <NavLink to='/seasons' className={styles.link}>
+          <Link to='/seasons' className={styles.link}>
             Shop
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink href='#' className={styles.link}>
+          <Link to='/' className={styles.link}>
             Account
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink href='#' className={styles.link}>
+          <Link to='/' className={styles.link}>
             Contact Us
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink href='#' className={styles.link}>
+          <Link to='/' className={styles.link}>
             Cart
-          </NavLink>
+          </Link>
         </li>
       </ul>
     </nav>

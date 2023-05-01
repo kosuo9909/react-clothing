@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import styles from './PrimaryHeading.module.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const PrimaryHeading = () => {
   return (
@@ -16,9 +16,9 @@ const PrimaryHeading = () => {
               Discover your fashion sense with our wide selection of clothing
               and accessories, designed to elevate your wardrobe.
             </p>
-            <NavLink to='/seasons' className={styles.headingBtn}>
+            <Link to='/seasons' className={styles.headingBtn}>
               Start dressing well
-            </NavLink>
+            </Link>
           </div>
           <div className={styles.heroImg}>
             <img
