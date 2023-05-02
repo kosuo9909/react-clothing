@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from clothesApi import views
+from knox import views as knox_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('items/', views.item_list),
     path('items/<int:id>', views.get_item),
     path('items/<str:id>', views.get_season),
+    path('api/register/', views.RegisterAPI.as_view(), name='register'),
+    path('api/login/', views.LoginAPI.as_view(), name='login'),
+    path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('api/logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
 ]

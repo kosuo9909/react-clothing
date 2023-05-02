@@ -15,6 +15,7 @@ import SeasonsSummerPage, {
   loader as summerLoader,
 } from './pages/SeasonsSummer';
 import Header from './components/Layout/Header';
+import Cart from './components/Cart/Cart';
 function App() {
   // return <RouterProvider router={router} />;
 
@@ -25,6 +26,7 @@ function App() {
       children: [
         { path: '/', element: <Home /> },
         { path: 'seasons', element: <SeasonsPage /> },
+        { path: 'cart', element: <Cart /> },
         {
           path: 'seasons/spring',
           element: <SeasonsSpringPage />,

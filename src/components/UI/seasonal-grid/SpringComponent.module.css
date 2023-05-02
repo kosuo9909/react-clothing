@@ -7,7 +7,6 @@
   height: 48rem;
   border-radius: 10px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
 }
 
 .itemsGrid {
@@ -55,15 +54,19 @@
 }
 
 .btn {
-  padding: 0.8rem 0.2rem;
+  /* padding: 0.8rem 0.2rem; */
+  height: 3.2rem;
   font-size: 1.2rem;
   font-weight: 600;
+  display: inline-block;
   text-transform: uppercase;
   border: 0.5px solid rgba(0, 0, 0, 0.582);
   border-radius: 8px;
+  transition: all 0.15s;
 }
 
 .btn:hover {
   /* background-color: #f08c00; */
-  color: #f08c00;
+  /* color: #f08c00; */
+  transform: scale(1.02);
 }

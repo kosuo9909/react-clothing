@@ -6,6 +6,8 @@
   /* background-color: #ff8787; */
   font-size: 1.8rem;
   height: 6.4rem;
+  position: relative;
+
   /* border-bottom: 2px solid #ff6b6b; */
   padding: 0 3.2rem;
 }
