@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from  clothesApi import views
+from clothesApi import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('items/', views.item_list),
     path('items/<int:id>', views.get_item),
+    path('items/<str:id>', views.get_season),
 ]

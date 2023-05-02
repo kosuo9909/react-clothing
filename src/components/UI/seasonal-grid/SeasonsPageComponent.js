@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import styles from './SeasonsPageComponent.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SeasonsPageComponent = () => {
   return (
@@ -8,10 +8,10 @@ const SeasonsPageComponent = () => {
       <div className={styles.containerSeasons}>
         <div className={styles.season}>
           <p className={styles.seasonalParagraph}>spring</p>
+
           <Link to='spring'>
-            {' '}
             <img
-              class={styles.img}
+              className={styles.img}
               src={require('../../../images/seasons/spring.webp')}
               alt='Spring'
             ></img>
@@ -22,7 +22,7 @@ const SeasonsPageComponent = () => {
           <p className={styles.seasonalParagraph}>summer</p>
           <Link to='summer'>
             <img
-              class={styles.img}
+              className={styles.img}
               src={require('../../../images/seasons/summer.webp')}
               alt='Spring'
             ></img>
@@ -32,7 +32,7 @@ const SeasonsPageComponent = () => {
           <p className={styles.seasonalParagraph}>autumn</p>
           <Link to='autumn'>
             <img
-              class={styles.img}
+              className={styles.img}
               src={require('../../../images/seasons/autumn.webp')}
               alt='Spring'
             ></img>
@@ -42,7 +42,7 @@ const SeasonsPageComponent = () => {
           <p className={styles.seasonalParagraph}>winter</p>
           <Link to='winter'>
             <img
-              class={styles.img}
+              className={styles.img}
               src={require('../../../images/seasons/winter.webp')}
               alt='Spring'
             ></img>
