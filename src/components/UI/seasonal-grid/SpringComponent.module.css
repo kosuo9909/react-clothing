@@ -59,6 +59,8 @@
   font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
+  border: 0.5px solid rgba(0, 0, 0, 0.582);
+  border-radius: 8px;
 }
 
 .btn:hover {

@@ -1,19 +1,19 @@
-import {
-  BrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-  createBrowserRouter,
-} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import SeasonsPage from './pages/Seasons';
 import SeasonsSpringPage, {
   loader as springLoader,
 } from './pages/SeasonsSpring';
-import SeasonsAutumnPage from './pages/SeasonsAutumn';
-import SeasonsWinterPage from './pages/SeasonsWinter';
-import SeasonsSummerPage from './pages/SeasonsSummer';
+import SeasonsAutumnPage, {
+  loader as autumnLoader,
+} from './pages/SeasonsAutumn';
+import SeasonsWinterPage, {
+  loader as winterLoader,
+} from './pages/SeasonsWinter';
+import SeasonsSummerPage, {
+  loader as summerLoader,
+} from './pages/SeasonsSummer';
 import Header from './components/Layout/Header';
 function App() {
   // return <RouterProvider router={router} />;
@@ -30,29 +30,25 @@ function App() {
           element: <SeasonsSpringPage />,
           loader: springLoader,
         },
+        {
+          path: 'seasons/autumn',
+          element: <SeasonsAutumnPage />,
+          loader: autumnLoader,
+        },
+        {
+          path: 'seasons/summer',
+          element: <SeasonsSummerPage />,
+          loader: summerLoader,
+        },
+        {
+          path: 'seasons/winter',
+          element: <SeasonsWinterPage />,
+          loader: winterLoader,
+        },
       ],
     },
   ]);
-  return (
-    // <createBrowserRouter>
-    //   <Routes>
-    //     <Route path='' element={<Header />}>
-    //       <Route path='/' element={<Home />}></Route>
-    //       <Route path='seasons' element={<SeasonsPage />} />
-    //       <Route
-    //         path='seasons/spring'
-    //         element={<SeasonsSpringPage />}
-    //         loader={springLoader}
-    //       />
-    //       <Route path='seasons/autumn' element={<SeasonsAutumnPage />} />
-    //       <Route path='seasons/winter' element={<SeasonsWinterPage />} />
-    //       {/* <Route path='seasons/summer' element={<SeasonsSummerPage />} /> */}
-    //     </Route>
-    //   </Routes>
-    // </createBrowserRouter>
-
-    <RouterProvider router={router}></RouterProvider>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

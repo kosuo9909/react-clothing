@@ -1,5 +1,3 @@
-import { Fragment } from 'react';
-import SeasonRenderedItem from './SeasonRenderedItem';
 import styles from './SpringComponent.module.css';
 
 const SpringComponent = (props) => {
