@@ -5,10 +5,11 @@ export const cartSlice = createSlice({
   initialState: {
     total: 0,
     itemsCount: 0,
+    item: 'W',
   },
   reducers: {
-    add_item: (state) => {
-      state.total += 1;
+    add_item: (state, action) => {
+      state.item = action.payload.item;
     },
 
     remove_item: (state) => {
