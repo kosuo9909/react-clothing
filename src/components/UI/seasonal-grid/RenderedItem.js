@@ -15,7 +15,7 @@ const RenderedItem = (props) => {
   return (
     <Fragment>
       <div className={styles.item}>
-        <h1>{item2}</h1>
+        <h1>test - adding {item2} to cart</h1>
         <img className={styles.img} src={props.item.image} alt='test'></img>
         <div className={styles.itemDescription}>
           <h1 className={styles.itemHeading}>{props.item.name}</h1>
