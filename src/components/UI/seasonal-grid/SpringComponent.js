@@ -6,7 +6,7 @@ const SpringComponent = (props) => {
   return (
     <div className={styles.itemsGrid}>
       {props.items.map((item) => (
-        <RenderedItem item={item}></RenderedItem>
+        <RenderedItem key={item.id} item={item}></RenderedItem>
       ))}
     </div>
   );

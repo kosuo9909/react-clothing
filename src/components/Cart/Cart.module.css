@@ -1,0 +1,38 @@
+.mainCart {
+  padding: 4.8rem 12.8rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  display: flex;
+  gap: 20rem;
+}
+
+.cart h1 {
+  margin-bottom: 4.8rem;
+}
+
+.total {
+  font-size: 1.8rem;
+}
+
+.totalSpan {
+  font-weight: 600;
+}
+
+.orderSummaryLine {
+  width: 34rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.orderDetails p {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}

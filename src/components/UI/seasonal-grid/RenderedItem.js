@@ -10,7 +10,15 @@ const RenderedItem = (props) => {
   const addToCartHandler = (e) => {
     e.preventDefault();
 
-    dispatch(add_item({ item: props.item.name }));
+    dispatch(
+      add_item({
+        item: {
+          item: props.item.name,
+          price: props.item.price,
+          image: props.item.image,
+        },
+      })
+    );
   };
   return (
     <Fragment>
