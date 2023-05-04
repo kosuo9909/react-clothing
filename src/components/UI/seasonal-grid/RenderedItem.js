@@ -6,6 +6,7 @@ import { add_item } from '../../../app/CartSlice';
 const RenderedItem = (props) => {
   const dispatch = useDispatch();
   const item2 = useSelector((state) => state.cart.item);
+  console.log(item2);
 
   const addToCartHandler = (e) => {
     e.preventDefault();
@@ -13,6 +14,7 @@ const RenderedItem = (props) => {
     dispatch(
       add_item({
         item: {
+          id: props.item.id,
           item: props.item.name,
           price: props.item.price,
           image: props.item.image,
