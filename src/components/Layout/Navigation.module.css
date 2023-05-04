@@ -11,6 +11,7 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+  position: relative;
 
   /* flex-direction: column; */
 
@@ -41,4 +42,18 @@
 
   text-decoration: none;
   color: #555;
+}
+
+.spanCartWarning {
+  position: absolute;
+  transform: translate3d(20px, -5px, 0);
+  background-color: red;
+  height: 2.4rem;
+  color: white;
+  width: 2.4rem;
+  padding-top: 0.2rem;
+  font-size: 1.8rem;
+  text-align: center;
+  border-radius: 50%;
+  /* display: none; */
 }
