@@ -10,12 +10,19 @@ const RenderedItem = (props) => {
   const addToCartHandler = (e) => {
     e.preventDefault();
 
-    dispatch(add_item({ item: props.item.name }));
+    dispatch(
+      add_item({
+        item: {
+          item: props.item.name,
+          price: props.item.price,
+          image: props.item.image,
+        },
+      })
+    );
   };
   return (
     <Fragment>
       <div className={styles.item}>
-        <h1>test - adding {item2} to cart</h1>
         <img className={styles.img} src={props.item.image} alt='test'></img>
         <div className={styles.itemDescription}>
           <h1 className={styles.itemHeading}>{props.item.name}</h1>
