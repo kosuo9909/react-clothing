@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
 }
 
 html {
@@ -21,6 +23,7 @@ body {
   font-weight: 400;
   color: #313131;
   background-color: #f2f2f7;
+  max-width: 1000vh;
 
   /* Only works if there is nothing absolutely positioned in relation to body */
   overflow-x: hidden;
@@ -30,4 +33,5 @@ main {
   font-size: 2.4rem;
   text-align: center;
   margin-top: 9.8rem;
+  width: 100vh;
 }

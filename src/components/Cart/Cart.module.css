@@ -4,6 +4,9 @@
   letter-spacing: 1px;
   display: flex;
   gap: 20rem;
+  min-width: 0;
+  min-height: 0;
+  /* overflow: hidden; */
 }
 
 .cart h1 {
@@ -16,23 +19,4 @@
 
 .totalSpan {
   font-weight: 600;
-}
-
-.orderSummaryLine {
-  width: 34rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 10rem;
-}
-
-.orderDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.orderDetails p {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  font-weight: 700;
 }

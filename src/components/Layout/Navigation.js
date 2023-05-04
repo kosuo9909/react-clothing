@@ -1,9 +1,20 @@
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { dummy_update } from '../../app/CartSlice';
 
 const Navigation = () => {
-  const cartCount = useSelector((state) => state.cart.item.length);
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     dispatch(dummy_update());
+  //   }, 1000);
+
+  //   return () => clearInterval(intervalId);
+  // }, [dispatch]);
+  const cartCount = useSelector((state) => state.cart.itemsCount);
+
   return (
     <div className={styles.navBarWrapper}>
       <div className={styles.btnGroup}>
