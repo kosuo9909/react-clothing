@@ -28,6 +28,16 @@ export const cartSlice = createSlice({
       }
     },
 
+    remove_item(state, action) {
+      const existingItem = state.item.find(
+        (item) => item.id === action.payload.id
+      );
+      const existingItemIndex = state.item.indexOf(existingItem);
+      state.itemsCount -= existingItem.quantity;
+      state.total -= existingItem.quantity * existingItem.price;
+      state.item.splice(existingItemIndex, 1);
+    },
+
     increase_quantity(state, action) {
       const existingItem = state.item.find(
         (item) => item.id === action.payload.id
@@ -70,6 +80,7 @@ export const {
   clear_cart,
   increase_quantity,
   dummy_update,
+  remove_item,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

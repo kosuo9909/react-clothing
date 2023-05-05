@@ -16,6 +16,8 @@ import SeasonsSummerPage, {
 } from './pages/SeasonsSummer';
 import Header from './components/Layout/Header';
 import Cart from './components/Cart/Cart';
+import Register from './components/Account/Register';
+import Login from './components/Account/Login';
 function App() {
   // return <RouterProvider router={router} />;
 
@@ -47,6 +49,8 @@ function App() {
           element: <SeasonsWinterPage />,
           loader: winterLoader,
         },
+        { path: 'register', element: <Register /> },
+        { path: 'login', element: <Login /> },
       ],
     },
   ]);

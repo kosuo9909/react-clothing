@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './CartItemPriceDetails.module.css';
-import { decrease_quantity, increase_quantity } from '../../app/CartSlice';
+import {
+  decrease_quantity,
+  increase_quantity,
+  remove_item,
+} from '../../app/CartSlice';
 
 const CartItemPriceDetails = (props) => {
   const dispatch = useDispatch();
@@ -13,6 +17,11 @@ const CartItemPriceDetails = (props) => {
     e.preventDefault();
 
     dispatch(decrease_quantity({ id: props.id }));
+  };
+
+  const removeItem = (e) => {
+    e.preventDefault();
+    dispatch(remove_item({ id: props.id }));
   };
   const count = useSelector((state) => state.cart.itemsCount);
   return (
@@ -39,7 +48,7 @@ const CartItemPriceDetails = (props) => {
           </svg>
         </button>
 
-        <span>{count}</span>
+        <span>{props.quantity}</span>
         <button onClick={increaseQuantity} className={styles.quantityBtn}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -57,6 +66,9 @@ const CartItemPriceDetails = (props) => {
           </svg>
         </button>
       </div>
+      <button onClick={removeItem} className={styles.btn}>
+        Remove
+      </button>
     </div>
   );
 };
