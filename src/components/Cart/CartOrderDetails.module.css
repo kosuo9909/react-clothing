@@ -6,9 +6,13 @@
 }
 
 .orderDetails {
+  background-color: white;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  padding: 2.4rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.253);
+  border-radius: 10px;
 }
 
 .orderDetails p {
