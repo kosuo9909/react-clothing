@@ -13,12 +13,26 @@
   gap: 1rem;
 }
 
-.form input {
+.form label {
+  align-self: flex-start;
+
+  color: red;
+}
+
+.input {
   height: 4rem;
   width: 34rem;
   padding: 2rem;
   border-radius: 10px;
   border: 0.5px solid rgba(0, 0, 0, 0.247);
+}
+
+.inputRed {
+  height: 4rem;
+  width: 34rem;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 0, 0);
 }
 
 .signUpDiv {
