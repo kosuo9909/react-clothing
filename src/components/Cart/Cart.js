@@ -15,7 +15,7 @@ const Cart = () => {
           {itemsCount > 0 ? (
             <h1>Your shopping cart</h1>
           ) : (
-            <h1>Your shopping cart is empty</h1>
+            <h1 className={styles.emptyCart}>Your shopping cart is empty</h1>
           )}
           {cartTotalSelector.map((item) => (
             <CartItem item={item} />
