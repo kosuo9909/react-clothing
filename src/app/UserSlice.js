@@ -4,6 +4,7 @@ const cartSlice = createSlice({
   name: 'user',
   initialState: {
     isLoggedIn: false,
+    currentUserEmail: 'Petko',
   },
 
   reducers: {
@@ -14,9 +15,12 @@ const cartSlice = createSlice({
         state.isLoggedIn = false;
       }
     },
+    currentUserEmailUpdate(state, action) {
+      state.currentUserEmail = action.payload.email;
+    },
   },
 });
 
-export const { checkLoggedIn } = cartSlice.actions;
+export const { checkLoggedIn, currentUserEmailUpdate } = cartSlice.actions;
 export { cartSlice };
 export default cartSlice.reducer;

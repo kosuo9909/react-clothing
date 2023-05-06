@@ -1,16 +1,8 @@
 import styles from './Login.module.css';
-import {
-  signInWithEmailAndPassword,
-  setPersistence,
-  browserLocalPersistence,
-  browserSessionPersistence,
-  inMemoryPersistence,
-  onAuthStateChanged,
-} from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
-import { FirebaseError } from 'firebase/app';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -47,7 +39,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
 
     if (password !== password2) {
       setError('Passwords do not match!');
