@@ -1,9 +1,26 @@
 import styles from './Header.module.css';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Navigation from './Navigation';
 import { Link, Outlet } from 'react-router-dom';
+import { auth } from '../../firebase/firebase';
+import { useDispatch } from 'react-redux';
+import { checkLoggedIn } from '../../app/UserSlice';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        dispatch(checkLoggedIn({ type: 'LoggedIn' }));
+      } else {
+        setIsLoggedIn(false);
+        dispatch(checkLoggedIn({ type: 'notLoggedIn' }));
+      }
+    });
+  }, [dispatch]);
+
   return (
     <Fragment>
       <header className={styles.header}>

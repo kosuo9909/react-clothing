@@ -1,6 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './CartSlice';
+import userReducer from './UserSlice';
 import { throttle } from 'lodash';
+
+// const rootReducer = combineReducers({
+//   cart: { cartReducer },
+//   user: { userReducer },
+// });
 
 const loadState = () => {
   try {
@@ -24,6 +30,7 @@ const persistedState = loadState();
 const store = configureStore({
   reducer: {
     cart: cartReducer,
+    user: userReducer,
   },
   preloadedState: persistedState,
 });

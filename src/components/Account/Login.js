@@ -1,5 +1,12 @@
 import styles from './Login.module.css';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence,
+  browserSessionPersistence,
+  inMemoryPersistence,
+  onAuthStateChanged,
+} from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
