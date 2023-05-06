@@ -1,39 +1,52 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './CartOrderDetails.module.css';
-import SubmitCart from '../../api/submitCart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { auth } from '../../firebase/firebase';
+import { clear_cart } from '../../app/CartSlice';
 
 const CartOrderDetails = (props) => {
+  const dispatch = useDispatch();
   const [submit, setSubmit] = useState('');
   const itemsCount = useSelector((state) => state.cart.itemsCount);
   const cartTotalSelector = useSelector((state) => state.cart.item);
-  console.log(cartTotalSelector);
   const userEmail = useSelector((state) => state.user.currentUserEmail);
+  const userID = useSelector((state) => state.user.currentUserID);
   const total = useSelector((state) => state.cart.total).toFixed(2);
 
   const submitHandler = () => {
     setSubmit(true);
+    dispatch(clear_cart());
   };
+
+  const [shippingCost, setShippingCost] = useState(7);
+
+  useEffect(() => {
+    if (total > 50) {
+      setShippingCost(0);
+    } else {
+      setShippingCost(7);
+    }
+  }, [total]);
 
   useEffect(() => {
     if (submit === true) {
       axios
         .post(
-          'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/t2est.json',
+          'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/' +
+            userID +
+            '.json',
           {
-            items: cartTotalSelector[0],
-            user: userEmail,
+            items: cartTotalSelector,
+            userEmail,
+            total: total,
           }
         )
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
       setSubmit(false);
     } else {
-      console.log(userEmail + 'CURRENT FROM REDUX');
     }
-  }, [submit, cartTotalSelector, userEmail]);
+  }, [submit, cartTotalSelector, userEmail, userID, total, dispatch]);
 
   return (
     <div>
@@ -46,9 +59,17 @@ const CartOrderDetails = (props) => {
           </div>
           <div className={styles.orderSummaryLine}>
             <span>Shipping: </span>
-            <span>{total < 50 ? ' 4.00  лв.' : 'FREE'} </span>
+            <span>
+              {total < 50 ? <span>{shippingCost.toFixed(2)} лв.</span> : 'FREE'}{' '}
+            </span>
           </div>
-          <button onClick={submitHandler}>Submit</button>
+          <div className={styles.orderSummaryLine}>
+            <span>Order Total: </span>
+            <span>{Number(total) + shippingCost} лв.</span>
+          </div>
+          <button className={styles.btn} onClick={submitHandler}>
+            Submit order
+          </button>
         </div>
       ) : (
         <div></div>

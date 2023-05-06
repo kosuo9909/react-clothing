@@ -70,6 +70,8 @@ export const cartSlice = createSlice({
 
     clear_cart: (state) => {
       state.item = [];
+      state.total = 0;
+      state.itemsCount = 0;
     },
   },
 });
