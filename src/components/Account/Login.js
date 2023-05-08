@@ -2,7 +2,7 @@ import styles from './Login.module.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -125,8 +125,14 @@ const Login = () => {
         ></input>
         {error && <div className={styles.error}>{error}</div>}
         <button className={styles.btn} type='submit'>
-          Sign In
+          Log In
         </button>
+        <div className={styles.noAccount}>
+          You don't have an account?{' '}
+          <Link className={styles.noAccountLink} to='/register'>
+            Register now.
+          </Link>{' '}
+        </div>
       </form>
     </div>
   );

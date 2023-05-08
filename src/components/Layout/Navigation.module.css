@@ -72,3 +72,57 @@
   transform: scale(1.3);
   color: #f08c00;
 }
+
+.btnGroupDrop {
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  color: #555;
+}
+
+.linkDrop {
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.linkDrop:hover,
+.linkDrop:active {
+  cursor: pointer;
+  transform: scale(1.3);
+  color: #f08c00;
+}
+
+.dropDown {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+.linkDrop:hover .dropDown {
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 1.6rem;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: scale(1);
+}
+
+.groupDrop {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.iconSmall {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #f08c00;
+}

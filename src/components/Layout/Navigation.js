@@ -1,6 +1,6 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Navigation.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { auth } from '../../firebase/firebase';
 
 const Navigation = () => {
@@ -29,11 +29,11 @@ const Navigation = () => {
           />
         </svg>
 
-        <Link className={styles.link} to='seasons'>
+        <Link className={styles.link} to='shop'>
           <span>Shop</span>
         </Link>
       </div>
-      {!loginState ? (
+      {/* {!loginState ? (
         <div className={styles.btnGroup}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -56,7 +56,7 @@ const Navigation = () => {
         </div>
       ) : (
         ''
-      )}
+      )} */}
       {loginState ? (
         <div className={styles.btnGroup}>
           <svg
@@ -76,17 +76,12 @@ const Navigation = () => {
           <a onClick={logoutHandler} className={styles.btn} href='#'>
             Logout
           </a>
-          {/* <button }>Logout</button> */}
-          {/* <Link className={styles.link} to='logout'>
-            <span>Logout</span>
-          </Link> */}
         </div>
       ) : (
         ''
       )}
-      {loginState ? (
-        <div className={styles.btnGroup}>
-          {/* <button onClick={logoutHandler}>LOGOUT</button> */}
+      {!loginState ? (
+        <div className={styles.btnGroupDrop}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -102,8 +97,50 @@ const Navigation = () => {
             />
           </svg>
 
-          <Link className={styles.link} to='seasons'>
+          <Link className={styles.linkDrop} to='#'>
             <span>Account</span>
+            <div className={styles.dropDown}>
+              <div className={styles.groupDrop}>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  className={styles.iconSmall}
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75'
+                  />
+                </svg>
+
+                <Link className={styles.link} to='login'>
+                  <span>Login</span>
+                </Link>
+              </div>
+              <div className={styles.groupDrop}>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  className={styles.iconSmall}
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M12 4.5v15m7.5-7.5h-15'
+                  />
+                </svg>
+
+                <Link className={styles.link} to='register'>
+                  <span>Register</span>
+                </Link>
+              </div>
+            </div>
           </Link>
         </div>
       ) : (
@@ -125,7 +162,7 @@ const Navigation = () => {
           />
         </svg>
 
-        <Link className={styles.link} to='seasons'>
+        <Link className={styles.link} to='shop'>
           <span>About</span>
         </Link>
       </div>

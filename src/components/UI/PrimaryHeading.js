@@ -9,21 +9,21 @@ const PrimaryHeading = () => {
         <div className={styles.hero}>
           <div className={styles.primaryBox}>
             <h1 className={styles.headingPrimary}>
-              Look good, feel even better.
+              Your Mobile Journey Begins Here.
             </h1>
 
             <p className={styles.headingDescription}>
-              Discover your fashion sense with our wide selection of clothing
-              and accessories, designed to elevate your wardrobe.
+              Get Your Thumb Workout: Endless Scrolling Awaits at Our Mobile
+              Shop!
             </p>
-            <Link to='/seasons' className={styles.headingBtn}>
-              Start dressing well
+            <Link to='/shop' className={styles.headingBtn}>
+              Experience innovation
             </Link>
           </div>
           <div className={styles.heroImg}>
             <img
               className={styles.headingImg}
-              src={require('../../images/whereslugo-6QvRVC-6_Vo-unsplash.webp')}
+              src='https://i.imgur.com/oUOiyco.jpg'
               alt='A Fashionable woman'
             ></img>
           </div>

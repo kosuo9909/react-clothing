@@ -9,8 +9,9 @@ import {
   currentUserEmailUpdate,
   currentUserIdUpdate,
 } from '../../app/UserSlice';
+import Footer from './Footer';
 
-const Header = () => {
+const Header = (props) => {
   const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -43,6 +44,7 @@ const Header = () => {
         <Navigation />
       </header>
       <Outlet />
+      <Footer />
     </Fragment>
   );
 };
