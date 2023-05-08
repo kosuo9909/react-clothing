@@ -27,7 +27,7 @@ const RenderedItem = (props) => {
         <img className={styles.img} src={props.item.image} alt='test'></img>
         <div className={styles.itemDescription}>
           <h1 className={styles.itemHeading}>{props.item.name}</h1>
-          <p className={styles.price}>${props.item.price}</p>
+          <p className={styles.price}>{props.item.price} лв.</p>
         </div>
         <div className={styles.btnFlex}>
           <button onClick={addToCartHandler} className={styles.btn}>

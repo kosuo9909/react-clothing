@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { clear_cart } from '../../app/CartSlice';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const CartOrderDetails = (props) => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const CartOrderDetails = (props) => {
   const userEmail = useSelector((state) => state.user.currentUserEmail);
   const userID = useSelector((state) => state.user.currentUserID);
   const total = useSelector((state) => state.cart.total).toFixed(2);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   const submitHandler = () => {
     setSubmit(true);
@@ -106,13 +108,21 @@ const CartOrderDetails = (props) => {
           </div>
           <div className={styles.orderSummaryLine}>
             <span>Order Total: </span>
-            <span>{Number(total) + shippingCost} лв.</span>
+            <span>{(Number(total) + shippingCost).toFixed(2)} лв.</span>
           </div>
-          <button className={styles.btn} onClick={submitHandler}>
-            {postData.isLoading && postData.isFetching
-              ? 'Submitting order'
-              : 'Submit order'}
-          </button>
+          {isLoggedIn ? (
+            <button className={styles.btn} onClick={submitHandler}>
+              {postData.isLoading && postData.isFetching
+                ? 'Submitting order'
+                : 'Submit order'}
+            </button>
+          ) : (
+            <Link to='/login'>
+              <button className={styles.btn} onClick={submitHandler}>
+                Log into your account to submit
+              </button>
+            </Link>
+          )}
         </div>
       ) : (
         <div></div>
