@@ -1,13 +1,33 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
 import styles from './Cart.module.css';
 import { Fragment } from 'react';
 import CartOrderDetails from './CartOrderDetails';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import FetchProfile from '../../api/fetchProfile';
+import { hasProfileUpdate } from '../../app/UserSlice';
 
 const Cart = () => {
   const cartTotalSelector = useSelector((state) => state.cart.item);
   const itemsCount = useSelector((state) => state.cart.itemsCount);
+  const dispatch = useDispatch();
+  const userID = useSelector((state) => state.user.currentUserID);
+  const hasProfile = useSelector((state) => state.user.hasProfile);
+
+  const fetchedUsers = useQuery(['userData', userID], () =>
+    FetchProfile(userID)
+  );
+
+  if (
+    fetchedUsers?.data?.name?.length > 0 &&
+    fetchedUsers?.data?.phone?.length > 0 &&
+    fetchedUsers?.data?.address?.length > 0
+  ) {
+    dispatch(hasProfileUpdate({ type: true }));
+  } else {
+    dispatch(hasProfileUpdate({ type: false }));
+  }
 
   return (
     <Fragment>
@@ -18,7 +38,7 @@ const Cart = () => {
           ) : (
             <div>
               <h1 className={styles.emptyCart}>Your shopping cart is empty</h1>
-              <Link to='/seasons' className={styles.btn}>
+              <Link to='/shop' className={styles.btn}>
                 Shop now
               </Link>
             </div>

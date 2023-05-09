@@ -12,6 +12,35 @@
   align-items: center;
   /* gap: 20rem; */
 }
+.btn,
+.btn:link,
+.btn:visited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  background-color: #f08c00;
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* Put transition on original "state" */
+  /* transition: background-color 0.3s; */
+  transition: all 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  transform: scale(1.1);
+  color: white;
+}
 
 .orders {
   display: flex;
@@ -31,4 +60,21 @@
   border: 1px solid rgba(0, 0, 0, 0.486);
   padding: 1.2rem;
   border-radius: 10px;
+}
+
+.noOrders {
+  margin-top: 25.6rem;
+  font-size: 3.2rem;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.noOrdersGrp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
 }

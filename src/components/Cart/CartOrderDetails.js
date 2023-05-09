@@ -4,12 +4,20 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { clear_cart } from '../../app/CartSlice';
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { database } from '../../firebase/firebase';
+import { push, ref } from 'firebase/database';
+import FetchProfile from '../../api/fetchProfile';
 
 const CartOrderDetails = (props) => {
+  const db = database;
   const dispatch = useDispatch();
-  const [submit, setSubmit] = useState(false);
+  const taskRef = (db, 'orders/');
 
+  const navigate = useNavigate();
+
+  // const [submit, setSubmit] = useState(false);
+  const hasProfile = useSelector((state) => state.user.hasProfile);
   const itemsCount = useSelector((state) => state.cart.itemsCount);
   const cartTotalSelector = useSelector((state) => state.cart.item);
   const userEmail = useSelector((state) => state.user.currentUserEmail);
@@ -17,10 +25,41 @@ const CartOrderDetails = (props) => {
   const total = useSelector((state) => state.cart.total).toFixed(2);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const fetchedUsers = useQuery(['userData', userID], () =>
+    FetchProfile(userID)
+  );
+
   const submitHandler = () => {
-    setSubmit(true);
-    postData.refetch();
-    setSubmit(false);
+    let orderId = Math.floor(
+      Math.random() * (999999999 - 100000000 + 1) + 100000000
+    );
+    let date = new Date();
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+    };
+    // setSubmit(true);
+    // postData.refetch();
+    // setSubmit(false);
+    if (!hasProfile) {
+      navigate('/profile');
+      return;
+    }
+    push(ref(db, 'orders/' + userID), {
+      orderId: orderId,
+      items: cartTotalSelector,
+      email: userEmail,
+      total: total,
+      address: { ...fetchedUsers.data },
+      date: date.toLocaleDateString('bg-BG', options),
+    });
     dispatch(clear_cart());
   };
 
@@ -33,38 +72,6 @@ const CartOrderDetails = (props) => {
       setShippingCost(7);
     }
   }, [total]);
-
-  const postData = useQuery({
-    queryKey: ['submitCart'],
-    queryFn: async () => {
-      console.log('dddd');
-      let date = new Date();
-      const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-      };
-      const res = await axios.post(
-        'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/' +
-          userID +
-          '.json',
-        {
-          items: cartTotalSelector,
-          userEmail,
-          total: total,
-          date: date.toLocaleDateString('bg-BG', options),
-        }
-      );
-      setSubmit(false);
-
-      return res.data;
-    },
-    enabled: submit === true,
-  });
 
   return (
     <div>
@@ -87,9 +94,8 @@ const CartOrderDetails = (props) => {
           </div>
           {isLoggedIn ? (
             <button className={styles.btn} onClick={submitHandler}>
-              {postData.isLoading && postData.isFetching
-                ? 'Submitting order'
-                : 'Submit order'}
+              {/* {postData.isLoading && postData.isFetching */}
+              {isSubmitting ? 'Submitting order' : 'Submit order'}
             </button>
           ) : (
             <Link to='/login'>

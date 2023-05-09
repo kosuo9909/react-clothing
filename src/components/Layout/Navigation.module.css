@@ -104,6 +104,10 @@
   padding: 2rem;
 }
 
+.dropDown:hover {
+  color: #f08c00;
+}
+
 .linkDrop:hover .dropDown {
   margin: 2rem auto;
   text-align: center;
@@ -114,6 +118,8 @@
   gap: 1.5rem;
   transform: scale(1);
   background-color: #f8f9fa;
+  color: #555;
+
   border-radius: 10px;
 }
 
