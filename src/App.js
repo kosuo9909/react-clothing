@@ -10,6 +10,7 @@ import Register from './components/Account/Register';
 import Login from './components/Account/Login';
 import Footer from './components/Layout/Footer';
 import OrdersPage from './pages/OrdersPage';
+import Profile from './components/Account/Profile';
 function App() {
   // return <RouterProvider router={router} />;
 
@@ -29,6 +30,7 @@ function App() {
         { path: 'register', element: <Register /> },
         { path: 'login', element: <Login /> },
         { path: 'orders', element: <OrdersPage /> },
+        { path: 'profile', element: <Profile /> },
       ],
     },
   ]);

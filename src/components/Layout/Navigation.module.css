@@ -113,6 +113,8 @@
   flex-direction: column;
   gap: 1.5rem;
   transform: scale(1);
+  background-color: #f8f9fa;
+  border-radius: 10px;
 }
 
 .groupDrop {

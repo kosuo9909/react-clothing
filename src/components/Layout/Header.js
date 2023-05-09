@@ -17,6 +17,8 @@ const Header = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        // console.log('HEYYYY');
+        // console.log(user);
         setIsLoggedIn(true);
         dispatch(checkLoggedIn({ type: 'LoggedIn' }));
         dispatch(currentUserEmailUpdate({ email: user.email }));

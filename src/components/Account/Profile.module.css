@@ -1,0 +1,80 @@
+.form {
+  margin: 0 auto;
+  margin-top: 12.8rem;
+  max-width: 59.8rem;
+  max-height: 57.5rem;
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-grow: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  border: 0.5px solid rgba(0, 0, 0, 0.274);
+  border-radius: 30px;
+}
+
+.label {
+  font-size: 1.8rem;
+  color: #666;
+  width: 100%;
+  text-align: start;
+}
+
+.formInput {
+  width: 26.9rem;
+  height: 3.6rem;
+  border-radius: 5px;
+  /* text-align: center; */
+  padding: 2rem;
+  font-size: 1.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.342);
+}
+
+.formInput::placeholder,
+.formInputAdd::placeholder {
+  color: #444;
+}
+
+.formInputAdd {
+  width: 55.8rem;
+  height: 3.6rem;
+  padding: 2rem;
+
+  border-radius: 5px;
+
+  text-align: start;
+  font-size: 1.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.342);
+}
+
+.group {
+  display: flex;
+  gap: 2rem;
+}
+
+.group2items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.btn {
+  /* padding: 0.8rem 0.2rem; */
+  height: 3.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: uppercase;
+  border: 0.5px solid rgba(0, 0, 0, 0.582);
+  background-color: white;
+  border-radius: 8px;
+  transition: all 0.15s;
+  width: 12rem;
+}
+
+.formh2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}

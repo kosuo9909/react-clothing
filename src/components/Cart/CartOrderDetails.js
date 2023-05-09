@@ -38,6 +38,16 @@ const CartOrderDetails = (props) => {
     queryKey: ['submitCart'],
     queryFn: async () => {
       console.log('dddd');
+      let date = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+      };
       const res = await axios.post(
         'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/' +
           userID +
@@ -46,6 +56,7 @@ const CartOrderDetails = (props) => {
           items: cartTotalSelector,
           userEmail,
           total: total,
+          date: date.toLocaleDateString('bg-BG', options),
         }
       );
       setSubmit(false);
@@ -54,42 +65,6 @@ const CartOrderDetails = (props) => {
     },
     enabled: submit === true,
   });
-
-  // useEffect(() => {
-  //   if (submit) {
-  //     console.log('effect true');
-  //     postData.refetch();
-  //     setSubmit(false);
-  //   }
-  //   console.log('effect false');
-  // }, [postData, submit]);
-
-  // if (submit === true) {
-  //   console.log('wtf');
-  //   console.log(postData.isLoading);
-  //   postData();
-  //   setSubmit(false);
-  // }
-
-  // useEffect(() => {
-  //   if (submit === true) {
-  //     axios
-  //       .post(
-  //         'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/' +
-  //           userID +
-  //           '.json',
-  //         {
-  //           items: cartTotalSelector,
-  //           userEmail,
-  //           total: total,
-  //         }
-  //       )
-  //       .then((response) => console.log(response))
-  //       .catch((error) => console.log(error));
-  //     setSubmit(false);
-  //   } else {
-  //   }
-  // }, [submit, cartTotalSelector, userEmail, userID, total, dispatch]);
 
   return (
     <div>
