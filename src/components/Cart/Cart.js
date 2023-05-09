@@ -18,7 +18,7 @@ const Cart = () => {
           ) : (
             <div>
               <h1 className={styles.emptyCart}>Your shopping cart is empty</h1>
-              <Link to='/seasons' className={styles.btn}>
+              <Link to='/shop' className={styles.btn}>
                 Shop now
               </Link>
             </div>

@@ -11,9 +11,11 @@ import Login from './components/Account/Login';
 import Footer from './components/Layout/Footer';
 import OrdersPage from './pages/OrdersPage';
 import Profile from './components/Account/Profile';
+import { useSelector } from 'react-redux';
+import Protected from './components/Protected';
 function App() {
   // return <RouterProvider router={router} />;
-
+  const isSignedIn = useSelector((state) => state.user.isLoggedIn);
   const router = createBrowserRouter([
     {
       path: '',
@@ -29,8 +31,22 @@ function App() {
         },
         { path: 'register', element: <Register /> },
         { path: 'login', element: <Login /> },
-        { path: 'orders', element: <OrdersPage /> },
-        { path: 'profile', element: <Profile /> },
+        {
+          path: 'orders',
+          element: (
+            <Protected isSignedIn={isSignedIn}>
+              <OrdersPage />
+            </Protected>
+          ),
+        },
+        {
+          path: 'profile',
+          element: (
+            <Protected isSignedIn={isSignedIn}>
+              <Profile />
+            </Protected>
+          ),
+        },
       ],
     },
   ]);
