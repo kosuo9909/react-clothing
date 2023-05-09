@@ -8,16 +8,16 @@ const OrdersComponent = (props) => {
         <div className={styles.orderTopPart}>
           <div className={styles.ordersLeft}>
             <div className={styles.orderNum}>
-              <span className={styles.orderSpan}>Order Number:</span>{' '}
+              <span className={styles.orderSpan}>Order Number &#8212; </span>{' '}
               {props.order.orderId}
             </div>
             <div className={styles.orderTotal}>
-              <span className={styles.orderSpan}>Order Total:</span>{' '}
+              <span className={styles.orderSpan}>Order Total &#8212; </span>{' '}
               {props.order.total} лв.
             </div>
             <div className={styles.orderTotal}>
               {' '}
-              <span className={styles.orderSpan}>Order Date:</span>{' '}
+              <span className={styles.orderSpan}>Order Date &#8212; </span>{' '}
               {props.order.date}
             </div>
           </div>
