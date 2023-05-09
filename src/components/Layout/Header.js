@@ -42,16 +42,22 @@ const Header = (props) => {
   const fetchedUsers = useQuery(['userData', userID], () =>
     FetchProfile(userID)
   );
-
-  if (
-    fetchedUsers?.data?.name?.length > 0 &&
-    fetchedUsers?.data?.phone?.length > 0 &&
-    fetchedUsers?.data?.address?.length > 0
-  ) {
-    dispatch(hasProfileUpdate({ type: true }));
-  } else {
-    dispatch(hasProfileUpdate({ type: false }));
-  }
+  useEffect(() => {
+    if (
+      fetchedUsers?.data?.name?.length > 0 &&
+      fetchedUsers?.data?.phone?.length > 0 &&
+      fetchedUsers?.data?.address?.length > 0
+    ) {
+      dispatch(hasProfileUpdate({ type: true }));
+    } else {
+      dispatch(hasProfileUpdate({ type: false }));
+    }
+  }, [
+    fetchedUsers?.data?.name,
+    fetchedUsers?.data?.phone,
+    fetchedUsers?.data?.address,
+    dispatch,
+  ]);
 
   return (
     <Fragment>

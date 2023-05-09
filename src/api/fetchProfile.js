@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useSelector } from 'react-redux';
 
 const FetchProfile = async (userId) => {
   const response = await axios.get(

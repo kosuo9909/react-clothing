@@ -7,6 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import { database } from '../../firebase/firebase';
 import { push, ref } from 'firebase/database';
+import FetchProfile from '../../api/fetchProfile';
 
 const CartOrderDetails = (props) => {
   const db = database;
@@ -26,7 +27,14 @@ const CartOrderDetails = (props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const fetchedUsers = useQuery(['userData', userID], () =>
+    FetchProfile(userID)
+  );
+
   const submitHandler = () => {
+    let orderId = Math.floor(
+      Math.random() * (999999999 - 100000000 + 1) + 100000000
+    );
     let date = new Date();
     const options = {
       weekday: 'long',
@@ -45,9 +53,11 @@ const CartOrderDetails = (props) => {
       return;
     }
     push(ref(db, 'orders/' + userID), {
+      orderId: orderId,
       items: cartTotalSelector,
-      userEmail,
+      email: userEmail,
       total: total,
+      address: { ...fetchedUsers.data },
       date: date.toLocaleDateString('bg-BG', options),
     });
     dispatch(clear_cart());
@@ -62,38 +72,6 @@ const CartOrderDetails = (props) => {
       setShippingCost(7);
     }
   }, [total]);
-
-  // const postData = useQuery({
-  //   queryKey: ['submitCart'],
-  //   queryFn: async () => {
-  //     console.log('dddd');
-  //     let date = new Date();
-  //     const options = {
-  //       weekday: 'long',
-  //       year: 'numeric',
-  //       month: 'long',
-  //       day: 'numeric',
-  //       hour: 'numeric',
-  //       minute: 'numeric',
-  //       second: 'numeric',
-  //     };
-  //     const res = await axios.post(
-  //       'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/' +
-  //         userID +
-  //         '.json',
-  //       {
-  //         items: cartTotalSelector,
-  //         userEmail,
-  //         total: total,
-  //         date: date.toLocaleDateString('bg-BG', options),
-  //       }
-  //     );
-  //     setSubmit(false);
-
-  //     return res.data;
-  //   },
-  //   enabled: submit === true,
-  // });
 
   return (
     <div>
