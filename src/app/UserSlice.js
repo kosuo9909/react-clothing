@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     isLoggedIn: false,
     currentUserEmail: 'Petko',
     currentUserID: null,
+    hasProfile: false,
   },
 
   reducers: {
@@ -22,10 +23,21 @@ const cartSlice = createSlice({
     currentUserIdUpdate(state, action) {
       state.currentUserID = action.payload.id;
     },
+    hasProfileUpdate(state, action) {
+      if (action.payload.type === true) {
+        state.hasProfile = true;
+      } else {
+        state.hasProfile = false;
+      }
+    },
   },
 });
 
-export const { checkLoggedIn, currentUserEmailUpdate, currentUserIdUpdate } =
-  cartSlice.actions;
+export const {
+  checkLoggedIn,
+  currentUserEmailUpdate,
+  currentUserIdUpdate,
+  hasProfileUpdate,
+} = cartSlice.actions;
 export { cartSlice };
 export default cartSlice.reducer;

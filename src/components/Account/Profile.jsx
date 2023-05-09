@@ -1,30 +1,25 @@
 import styles from './Profile.module.css';
 import { useQuery } from '@tanstack/react-query';
 import FetchProfile from '../../api/fetchProfile';
-import { Fragment, useRef, useState } from 'react';
-import SubmitProfile from '../../api/submitProfile';
-import axios from 'axios';
+import { Fragment, useRef } from 'react';
 import { database } from '../../firebase/firebase';
 import { ref, set } from 'firebase/database';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
-  const [submit, setSubmit] = useState(false);
   const userID = useSelector((state) => state.user.currentUserID);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
-  // const fetchedUsers = useQuery({
-  //   queryKey: ['userData', userID],
-  //   FetchProfile(userID),
-  // });
+  const navigate = useNavigate();
 
   const fetchedUsers = useQuery(['userData', userID], () =>
     FetchProfile(userID)
   );
   console.log(fetchedUsers.data);
   const submitHandler = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const db = database;
     set(ref(db, 'users/' + userID), {
       name:
@@ -40,33 +35,14 @@ const Profile = () => {
           ? fetchedUsers.data.phone
           : phoneRef.current.value,
     });
-    // setSubmit(true);
+    navigate('/cart');
   };
-
-  // const sentData = useQuery({
-  //   queryKey: ['userData'],
-  //   queryFn: async () => {
-  //     const response = await axios.post(
-  //       'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/users.json',
-  //       {
-  //         name: nameRef.current.value,
-  //         phone: phoneRef.current.value,
-  //         address: addressRef.current.value,
-  //       }
-  //     );
-  //     setSubmit(false);
-  //     console.log('working');
-  //     console.log(response);
-  //     return response;
-  //   },
-  //   enabled: submit === true,
-  // });
 
   return (
     <Fragment>
       <div>
         <form className={styles.form}>
-          <h2 className={styles.formh2}>Update your details here</h2>
+          <h2 className={styles.formh2}>Update your delivery details here</h2>
 
           <div className={styles.group}>
             <div className={styles.group2items}>
@@ -85,6 +61,7 @@ const Profile = () => {
                 Phone Number
               </label>
               <input
+                type='tel'
                 ref={phoneRef}
                 id='phone'
                 className={styles.formInput}
