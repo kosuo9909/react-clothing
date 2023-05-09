@@ -2,7 +2,7 @@ import styles from './Register.module.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
-import { redirect, useNavigate } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -116,8 +116,14 @@ const Register = () => {
         ></input>
         {error && <div className={styles.error}>{error}</div>}
         <button className={styles.btn} type='submit'>
-          Sign up
+          Register
         </button>
+        <div className={styles.alreadyRegistered}>
+          Already registered?{' '}
+          <Link className={styles.alreadyRegisteredLink} to='/login'>
+            Log in.
+          </Link>
+        </div>
       </form>
     </div>
   );

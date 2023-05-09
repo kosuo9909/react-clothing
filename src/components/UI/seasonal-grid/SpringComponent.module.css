@@ -1,10 +1,7 @@
 .img {
   display: inline-block;
-  /* height: 50%;
-  width: 50%; */
-  /* height: 59.6rem; */
-  width: 32rem;
-  height: 48rem;
+  width: 25rem;
+  height: 25rem;
   border-radius: 10px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 }
@@ -15,7 +12,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   justify-content: center;
-  max-width: 130rem;
+  max-width: 125rem;
   /* padding: 0 3.2rem; */
   margin: 0 auto;
   padding-top: 6.4rem;
@@ -61,12 +58,20 @@
   display: inline-block;
   text-transform: uppercase;
   border: 0.5px solid rgba(0, 0, 0, 0.582);
+  background-color: white;
   border-radius: 8px;
   transition: all 0.15s;
+  width: 100%;
 }
 
 .btn:hover {
   /* background-color: #f08c00; */
   /* color: #f08c00; */
   transform: scale(1.02);
+}
+
+.btnFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

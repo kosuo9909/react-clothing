@@ -1,39 +1,70 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './CartOrderDetails.module.css';
-import SubmitCart from '../../api/submitCart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { auth } from '../../firebase/firebase';
+import { clear_cart } from '../../app/CartSlice';
+import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const CartOrderDetails = (props) => {
-  const [submit, setSubmit] = useState('');
+  const dispatch = useDispatch();
+  const [submit, setSubmit] = useState(false);
+
   const itemsCount = useSelector((state) => state.cart.itemsCount);
   const cartTotalSelector = useSelector((state) => state.cart.item);
-  console.log(cartTotalSelector);
   const userEmail = useSelector((state) => state.user.currentUserEmail);
+  const userID = useSelector((state) => state.user.currentUserID);
   const total = useSelector((state) => state.cart.total).toFixed(2);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   const submitHandler = () => {
     setSubmit(true);
+    postData.refetch();
+    setSubmit(false);
+    dispatch(clear_cart());
   };
 
+  const [shippingCost, setShippingCost] = useState(7);
+
   useEffect(() => {
-    if (submit === true) {
-      axios
-        .post(
-          'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/t2est.json',
-          {
-            items: cartTotalSelector[0],
-            user: userEmail,
-          }
-        )
-        .then((response) => console.log(response))
-        .catch((error) => console.log(error));
-      setSubmit(false);
+    if (total > 50) {
+      setShippingCost(0);
     } else {
-      console.log(userEmail + 'CURRENT FROM REDUX');
+      setShippingCost(7);
     }
-  }, [submit, cartTotalSelector, userEmail]);
+  }, [total]);
+
+  const postData = useQuery({
+    queryKey: ['submitCart'],
+    queryFn: async () => {
+      console.log('dddd');
+      let date = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+      };
+      const res = await axios.post(
+        'https://react-deployment-demo-510ac-default-rtdb.firebaseio.com/' +
+          userID +
+          '.json',
+        {
+          items: cartTotalSelector,
+          userEmail,
+          total: total,
+          date: date.toLocaleDateString('bg-BG', options),
+        }
+      );
+      setSubmit(false);
+
+      return res.data;
+    },
+    enabled: submit === true,
+  });
 
   return (
     <div>
@@ -46,9 +77,27 @@ const CartOrderDetails = (props) => {
           </div>
           <div className={styles.orderSummaryLine}>
             <span>Shipping: </span>
-            <span>{total < 50 ? ' 4.00  лв.' : 'FREE'} </span>
+            <span>
+              {total < 50 ? <span>{shippingCost.toFixed(2)} лв.</span> : 'FREE'}{' '}
+            </span>
           </div>
-          <button onClick={submitHandler}>Submit</button>
+          <div className={styles.orderSummaryLine}>
+            <span>Order Total: </span>
+            <span>{(Number(total) + shippingCost).toFixed(2)} лв.</span>
+          </div>
+          {isLoggedIn ? (
+            <button className={styles.btn} onClick={submitHandler}>
+              {postData.isLoading && postData.isFetching
+                ? 'Submitting order'
+                : 'Submit order'}
+            </button>
+          ) : (
+            <Link to='/login'>
+              <button className={styles.btn} onClick={submitHandler}>
+                Log into your account to submit
+              </button>
+            </Link>
+          )}
         </div>
       ) : (
         <div></div>

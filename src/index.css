@@ -20,10 +20,13 @@ html {
 body {
   font-family: 'Lato', sans-serif;
   line-height: 1;
+  min-height: 100vh;
   font-weight: 400;
   color: #313131;
-  background-color: #f2f2f7;
+  /* background-color: #fff0f6; */
+  background-color: #f8f9fa;
   max-width: 1000vh;
+  position: relative;
 
   /* Only works if there is nothing absolutely positioned in relation to body */
   overflow-x: hidden;

@@ -4,20 +4,29 @@ import Navigation from './Navigation';
 import { Link, Outlet } from 'react-router-dom';
 import { auth } from '../../firebase/firebase';
 import { useDispatch } from 'react-redux';
-import { checkLoggedIn, currentUserEmailUpdate } from '../../app/UserSlice';
+import {
+  checkLoggedIn,
+  currentUserEmailUpdate,
+  currentUserIdUpdate,
+} from '../../app/UserSlice';
+import Footer from './Footer';
 
-const Header = () => {
+const Header = (props) => {
   const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        // console.log('HEYYYY');
+        // console.log(user);
         setIsLoggedIn(true);
-        dispatch(currentUserEmailUpdate({ email: user.email }));
         dispatch(checkLoggedIn({ type: 'LoggedIn' }));
+        dispatch(currentUserEmailUpdate({ email: user.email }));
+        dispatch(currentUserIdUpdate({ id: user.uid }));
       } else {
         setIsLoggedIn(false);
         dispatch(currentUserEmailUpdate({ email: null }));
+        dispatch(currentUserIdUpdate({ id: null }));
 
         dispatch(checkLoggedIn({ type: 'notLoggedIn' }));
       }
@@ -37,6 +46,7 @@ const Header = () => {
         <Navigation />
       </header>
       <Outlet />
+      <Footer />
     </Fragment>
   );
 };

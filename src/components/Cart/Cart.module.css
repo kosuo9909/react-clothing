@@ -20,3 +20,39 @@
 .totalSpan {
   font-weight: 600;
 }
+
+.emptyCart {
+  margin-top: 9.6rem;
+
+  color: #555;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  background-color: #f08c00;
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* Put transition on original "state" */
+  /* transition: background-color 0.3s; */
+  transition: all 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  transform: scale(1.1);
+  color: white;
+}

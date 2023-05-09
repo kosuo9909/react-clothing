@@ -67,3 +67,12 @@
   padding: 1.8rem;
   color: red;
 }
+
+.noAccount {
+  font-size: 1.4rem;
+}
+
+.noAccountLink {
+  text-decoration: none;
+  color: #a86200;
+}

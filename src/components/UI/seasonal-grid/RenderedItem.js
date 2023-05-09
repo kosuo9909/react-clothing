@@ -6,7 +6,6 @@ import { add_item } from '../../../app/CartSlice';
 const RenderedItem = (props) => {
   const dispatch = useDispatch();
   const item2 = useSelector((state) => state.cart.item);
-  console.log(item2);
 
   const addToCartHandler = (e) => {
     e.preventDefault();
@@ -28,11 +27,13 @@ const RenderedItem = (props) => {
         <img className={styles.img} src={props.item.image} alt='test'></img>
         <div className={styles.itemDescription}>
           <h1 className={styles.itemHeading}>{props.item.name}</h1>
-          <p className={styles.price}>${props.item.price}</p>
+          <p className={styles.price}>{props.item.price} лв.</p>
         </div>
-        <button onClick={addToCartHandler} className={styles.btn}>
-          Add to cart
-        </button>
+        <div className={styles.btnFlex}>
+          <button onClick={addToCartHandler} className={styles.btn}>
+            Add to cart
+          </button>
+        </div>
       </div>
     </Fragment>
   );

@@ -1,9 +1,8 @@
 import { useLoaderData } from 'react-router-dom';
-
 import { Fragment } from 'react';
 import SpringComponent from '../components/UI/seasonal-grid/SpringComponent';
 
-const SeasonsWinterPage = () => {
+const ShopPage = () => {
   const items = useLoaderData();
   return (
     <Fragment>
@@ -12,11 +11,11 @@ const SeasonsWinterPage = () => {
   );
 };
 
-export default SeasonsWinterPage;
+export default ShopPage;
 
 export async function loader() {
   const response = await fetch(
-    'https://react-clothing-60832-default-rtdb.firebaseio.com/items.json?orderBy="season"&equalTo="winter"'
+    'https://react-clothing-60832-default-rtdb.firebaseio.com/items.json?'
   );
 
   if (!response.ok) {

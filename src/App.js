@@ -1,56 +1,36 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-import SeasonsPage from './pages/Seasons';
-import SeasonsSpringPage, {
-  loader as springLoader,
-} from './pages/SeasonsSpring';
-import SeasonsAutumnPage, {
-  loader as autumnLoader,
-} from './pages/SeasonsAutumn';
-import SeasonsWinterPage, {
-  loader as winterLoader,
-} from './pages/SeasonsWinter';
-import SeasonsSummerPage, {
-  loader as summerLoader,
-} from './pages/SeasonsSummer';
+
+import ShopPage, { loader as autumnLoader } from './pages/Shop';
+
 import Header from './components/Layout/Header';
 import Cart from './components/Cart/Cart';
 import Register from './components/Account/Register';
 import Login from './components/Account/Login';
+import Footer from './components/Layout/Footer';
+import OrdersPage from './pages/OrdersPage';
+import Profile from './components/Account/Profile';
 function App() {
   // return <RouterProvider router={router} />;
 
   const router = createBrowserRouter([
     {
       path: '',
-      element: <Header />,
+      element: <Header footer={<Footer />} />,
       children: [
         { path: '/', element: <Home /> },
-        { path: 'seasons', element: <SeasonsPage /> },
         { path: 'cart', element: <Cart /> },
+
         {
-          path: 'seasons/spring',
-          element: <SeasonsSpringPage />,
-          loader: springLoader,
-        },
-        {
-          path: 'seasons/autumn',
-          element: <SeasonsAutumnPage />,
+          path: 'shop',
+          element: <ShopPage />,
           loader: autumnLoader,
-        },
-        {
-          path: 'seasons/summer',
-          element: <SeasonsSummerPage />,
-          loader: summerLoader,
-        },
-        {
-          path: 'seasons/winter',
-          element: <SeasonsWinterPage />,
-          loader: winterLoader,
         },
         { path: 'register', element: <Register /> },
         { path: 'login', element: <Login /> },
+        { path: 'orders', element: <OrdersPage /> },
+        { path: 'profile', element: <Profile /> },
       ],
     },
   ]);

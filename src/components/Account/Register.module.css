@@ -68,3 +68,12 @@
   padding: 1.8rem;
   color: red;
 }
+
+.alreadyRegistered {
+  font-size: 1.4rem;
+}
+
+.alreadyRegisteredLink {
+  text-decoration: none;
+  color: #a86200;
+}
