@@ -71,69 +71,72 @@ const Login = () => {
         setPassword('');
         setPassword2('');
       }
-      console.log(error);
     }
+    navigate('/shop');
+    navigate(0);
   };
 
   return (
-    <div className={styles.signUpDiv}>
-      <h1 className={styles.greeting}>Welcome back!</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        {isEmptyEmail && <label for='email'>This field is required</label>}
+    <div className={styles.Div100vh}>
+      <div className={styles.signUpDiv}>
+        <h1 className={styles.greeting}>Welcome back!</h1>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          {isEmptyEmail && <label for='email'>This field is required</label>}
 
-        <input
-          className={isEmptyEmail ? styles.inputRed : styles.input}
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-            setIsEmptyEmail(false);
-          }}
-          onBlur={blurHandlerEmail}
-          required
-        ></input>
-        {isEmptyPassword && (
-          <label for='password'>This field is required</label>
-        )}
-        <input
-          className={isEmptyPassword ? styles.inputRed : styles.input}
-          type='password'
-          placeholder='Password'
-          value={password}
-          required
-          onChange={(event) => {
-            setPassword(event.target.value);
-            setIsEmptyPassword(false);
-          }}
-          onBlur={blurHandlerPassword}
-        ></input>
-        {isEmptyPassword2 && (
-          <label for='password'>This field is required</label>
-        )}
-        <input
-          className={isEmptyPassword2 ? styles.inputRed : styles.input}
-          type='password'
-          placeholder='Repeat password'
-          value={password2}
-          required
-          onChange={(event) => {
-            setPassword2(event.target.value);
-            setIsEmptyPassword2(false);
-          }}
-          onBlur={blurHandlerPassword2}
-        ></input>
-        {error && <div className={styles.error}>{error}</div>}
-        <button className={styles.btn} type='submit'>
-          Log In
-        </button>
-        <div className={styles.noAccount}>
-          You don't have an account?{' '}
-          <Link className={styles.noAccountLink} to='/register'>
-            Register now.
-          </Link>{' '}
-        </div>
-      </form>
+          <input
+            className={isEmptyEmail ? styles.inputRed : styles.input}
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+              setIsEmptyEmail(false);
+            }}
+            onBlur={blurHandlerEmail}
+            required
+          ></input>
+          {isEmptyPassword && (
+            <label for='password'>This field is required</label>
+          )}
+          <input
+            className={isEmptyPassword ? styles.inputRed : styles.input}
+            type='password'
+            placeholder='Password'
+            value={password}
+            required
+            onChange={(event) => {
+              setPassword(event.target.value);
+              setIsEmptyPassword(false);
+            }}
+            onBlur={blurHandlerPassword}
+          ></input>
+          {isEmptyPassword2 && (
+            <label for='password'>This field is required</label>
+          )}
+          <input
+            className={isEmptyPassword2 ? styles.inputRed : styles.input}
+            type='password'
+            placeholder='Repeat password'
+            value={password2}
+            required
+            onChange={(event) => {
+              setPassword2(event.target.value);
+              setIsEmptyPassword2(false);
+            }}
+            onBlur={blurHandlerPassword2}
+          ></input>
+          {error && <div className={styles.error}>{error}</div>}
+          <button className={styles.btn} type='submit'>
+            Log In
+          </button>
+          <div className={styles.noAccount}>
+            You don't have an account?{' '}
+            <Link className={styles.noAccountLink} to='/register'>
+              Register now.
+            </Link>{' '}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

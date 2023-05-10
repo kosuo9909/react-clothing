@@ -5,6 +5,10 @@
   font-size: 3.2rem;
 }
 
+.Div100vh {
+  min-height: 75vh;
+}
+
 .form {
   display: flex;
   flex-direction: column;

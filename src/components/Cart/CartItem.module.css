@@ -28,3 +28,12 @@
   font-weight: 600;
   justify-self: start;
 }
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.right p {
+}
