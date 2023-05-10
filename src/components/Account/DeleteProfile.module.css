@@ -148,3 +148,163 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+@media only screen and (max-width: 1200px) {
+  .formCopy {
+    width: 50rem;
+  }
+  .formInput {
+    width: 20rem;
+  }
+
+  .formInputAdd {
+    width: 42rem;
+  }
+  .formh2 {
+    font-size: 2rem;
+  }
+
+  .warning {
+    font-size: 1.4rem;
+  }
+  .warning2 {
+    font-size: 1.4rem;
+  }
+
+  .deleteButton {
+    text-align: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .aside span {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .formCopy {
+    width: 40rem;
+  }
+  .formInput {
+    width: 15rem;
+  }
+
+  .warning {
+    font-size: 1.3rem;
+  }
+  .warning2 {
+    font-size: 1.3rem;
+  }
+
+  .formInputAdd {
+    width: 32rem;
+  }
+  .aside span {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .formCopy {
+    width: 30rem;
+  }
+  .formInput {
+    width: 13rem;
+  }
+
+  .formInputAdd {
+    width: 28rem;
+  }
+
+  .warning {
+    font-size: 1.2rem;
+  }
+  .warning2 {
+    font-size: 1.2rem;
+  }
+
+  .label {
+    font-size: 1.4rem;
+  }
+
+  .formInput::placeholder,
+  .formInputAdd::placeholder {
+    font-size: 1.2rem;
+  }
+  .formh2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .aside {
+    min-width: 10rem;
+    max-width: 12rem;
+    text-align: center;
+  }
+
+  .aside span {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    height: 2.6rem;
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 460px) {
+  .aside {
+    min-width: 8rem;
+    max-width: 10rem;
+    text-align: center;
+  }
+  .btn {
+    height: 2.6rem;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .aside {
+    padding: 0;
+    padding-top: 4rem;
+    min-width: 6rem;
+    max-width: 8rem;
+    text-align: center;
+  }
+
+  .aside span {
+    font-size: 1rem;
+  }
+
+  .formCopy {
+    width: 25rem;
+  }
+  .formInput {
+    width: 10rem;
+    padding: 0.8rem;
+  }
+
+  .formInputAdd {
+    width: 22rem;
+    padding: 0.8rem;
+  }
+
+  .label {
+    font-size: 1.1rem;
+    padding: 0rem;
+  }
+
+  .formInput::placeholder,
+  .formInputAdd::placeholder {
+    font-size: 1.2rem;
+  }
+  .formh2 {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    height: 2.6rem;
+    font-size: 1rem;
+  }
+}

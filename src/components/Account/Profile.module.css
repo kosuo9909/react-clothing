@@ -113,3 +113,126 @@
 .active {
   color: #f08c00;
 }
+
+/* 1200 PX */
+
+@media only screen and (max-width: 1200px) {
+  .form {
+    width: 50rem;
+  }
+  .formInput {
+    width: 20rem;
+  }
+
+  .formInputAdd {
+    width: 42rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .form {
+    width: 40rem;
+  }
+  .formInput {
+    width: 15rem;
+  }
+
+  .formInputAdd {
+    width: 32rem;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .form {
+    width: 30rem;
+  }
+  .formInput {
+    width: 13rem;
+  }
+
+  .formInputAdd {
+    width: 28rem;
+  }
+
+  .label {
+    font-size: 1.4rem;
+  }
+
+  .formInput::placeholder,
+  .formInputAdd::placeholder {
+    font-size: 1.2rem;
+  }
+  .formh2 {
+    font-size: 1.6rem;
+  }
+
+  .aside {
+    min-width: 10rem;
+    max-width: 12rem;
+    text-align: center;
+  }
+
+  .aside a {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    height: 2.6rem;
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 460px) {
+  .aside {
+    min-width: 8rem;
+    max-width: 10rem;
+    text-align: center;
+  }
+  .btn {
+    height: 2.6rem;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .aside {
+    padding: 0;
+    padding-top: 4rem;
+    min-width: 6rem;
+    max-width: 8rem;
+    text-align: center;
+  }
+
+  .aside a {
+    font-size: 1rem;
+  }
+
+  .form {
+    width: 25rem;
+  }
+  .formInput {
+    width: 10rem;
+    padding: 0.8rem;
+  }
+
+  .formInputAdd {
+    width: 22rem;
+    padding: 0.8rem;
+  }
+
+  .label {
+    font-size: 1.1rem;
+    padding: 0rem;
+  }
+
+  .formInput::placeholder,
+  .formInputAdd::placeholder {
+    font-size: 1.2rem;
+  }
+  .formh2 {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    height: 2.6rem;
+    font-size: 1rem;
+  }
+}

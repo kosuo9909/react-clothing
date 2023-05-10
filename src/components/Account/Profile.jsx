@@ -44,9 +44,9 @@ const Profile = () => {
         <div className={styles.containerGrid}>
           <aside className={styles.aside}>
             <Link to='/profile'>
-              <span className={styles.active}>Profile settings</span>
+              <span className={styles.active}>Настройки на профил</span>
             </Link>
-            <Link to='/unsubscribe'>Delete profile</Link>
+            <Link to='/unsubscribe'>Изтриване на профил</Link>
           </aside>
           <form className={styles.form}>
             <h2 className={styles.formh2}>Обнови данните ти за доставка тук</h2>

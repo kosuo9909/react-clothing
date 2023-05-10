@@ -67,10 +67,10 @@ const DeleteProfile = () => {
         <div className={styles.containerGrid}>
           <aside className={styles.aside}>
             <Link to='/profile'>
-              <span>Profile settings</span>
+              <span>Настройки на профил</span>
             </Link>
             <Link to='/unsubscribe'>
-              <span className={styles.active}> Delete profile</span>
+              <span className={styles.active}> Изтриване на профил</span>
             </Link>
           </aside>
           <div className={styles.formCopy}>
