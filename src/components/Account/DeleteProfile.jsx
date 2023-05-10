@@ -1,4 +1,4 @@
-import styles from './Profile.module.css';
+import styles from './DeleteProfile.module.css';
 import { useQuery } from '@tanstack/react-query';
 import FetchProfile from '../../api/fetchProfile';
 import { Fragment, useEffect, useRef, useState } from 'react';
@@ -6,13 +6,36 @@ import { database } from '../../firebase/firebase';
 import { ref, set } from 'firebase/database';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { deleteUser, getAuth } from 'firebase/auth';
 
-const Profile = () => {
+const DeleteProfile = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
   const userID = useSelector((state) => state.user.currentUserID);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
   const navigate = useNavigate();
+
+  const [isDelete, setIsDelete] = useState(false);
+
+  const deleteUserHandler = () => {
+    setIsDelete(true);
+  };
+
+  useEffect(() => {
+    if (isDelete) {
+      deleteUser(user)
+        .then(() => {})
+        .catch((error) => {
+          if (
+            error.message === 'Firebase: Error (auth/requires-recent-login).'
+          ) {
+            navigate('/relogin');
+          }
+        });
+    }
+  }, [user, isDelete, navigate]);
 
   const fetchedUsers = useQuery(['userData', userID], () =>
     FetchProfile(userID)
@@ -44,12 +67,33 @@ const Profile = () => {
         <div className={styles.containerGrid}>
           <aside className={styles.aside}>
             <Link to='/profile'>
-              <span className={styles.active}>Настройки на профил</span>
+              <span>Настройки на профил</span>
             </Link>
-            <Link to='/unsubscribe'>Изтриване на профил</Link>
+            <Link to='/unsubscribe'>
+              <span className={styles.active}> Изтриване на профил</span>
+            </Link>
           </aside>
-          <form className={styles.form}>
-            <h2 className={styles.formh2}>Обнови данните ти за доставка тук</h2>
+          <div className={styles.formCopy}>
+            <h2 className={styles.formh2}>
+              Съжаляваме да видим, че си тръгваш.
+            </h2>
+            <div className={styles.goodbye}>
+              <p className={styles.warning}>
+                Изтриването на профила ви ще бъде необратимо и ще премахне
+                всички лични данни и настройки, свързани с профила.
+              </p>
+              <p className={styles.warning2}>
+                Сигурни ли сте, че искате да продължите?
+              </p>
+              <button
+                className={styles.deleteButton}
+                onClick={deleteUserHandler}
+              >
+                Да, изтрий профила ми.
+              </button>
+            </div>
+          </div>
+          {/* <form className={styles.form}>
 
             <div className={styles.group}>
               <div className={styles.group2items}>
@@ -94,11 +138,11 @@ const Profile = () => {
             <button onClick={submitHandler} className={styles.btn}>
               Запази профил
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </Fragment>
   );
 };
 
-export default Profile;
+export default DeleteProfile;

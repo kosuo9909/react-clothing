@@ -1,3 +1,7 @@
+.vh100 {
+  min-height: 100vh;
+}
+
 .hero {
   display: grid;
   gap: 6.4rem;
@@ -29,7 +33,6 @@
 }
 
 .headingDescription {
-  /* width: 40%; */
   letter-spacing: -0.5px;
   font-size: 2.4rem;
   margin-bottom: 2.4rem;
@@ -42,23 +45,13 @@
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   border-radius: 20px;
-  /* padding: 9.6rem; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .headingImg {
   display: inline-block;
-  /* height: 50%;
-  width: 50%; */
-  /* height: 59.6rem; */
   width: 48rem;
   border-radius: 20px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-}
-
-.headingImg:hover {
-  /* transform: scale(1.05); */
 }
 
 .headingBtn,
@@ -89,4 +82,9 @@
 .headingBtn:active {
   transform: scale(1.1);
   color: white;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 1000px) {
 }

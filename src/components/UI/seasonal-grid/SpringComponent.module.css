@@ -19,6 +19,36 @@
   padding-bottom: 6.4rem;
 }
 
+.btn {
+  height: 3.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: uppercase;
+  border: 0.5px solid rgba(0, 0, 0, 0.582);
+  background-color: white;
+  border-radius: 8px;
+  transition: all 0.2s;
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  /* background-color: #f08c00; */
+  /* color: #f08c00; */
+  transform: scale(1.02);
+}
+
+.btn:active {
+  color: #f08c00;
+}
+
+.btnFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .item {
   display: flex;
   flex-direction: column;
@@ -52,33 +82,73 @@
   justify-content: space-between;
 }
 
-.btn {
-  /* padding: 0.8rem 0.2rem; */
-  height: 3.2rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  display: inline-block;
-  text-transform: uppercase;
-  border: 0.5px solid rgba(0, 0, 0, 0.582);
-  background-color: white;
-  border-radius: 8px;
-  transition: all 0.2s;
-  width: 100%;
-  letter-spacing: 1px;
+@media only screen and (max-width: 1200px) {
+  .btnFlex {
+    width: 25rem;
+    justify-content: start;
+  }
 }
 
-.btn:hover {
-  /* background-color: #f08c00; */
-  /* color: #f08c00; */
-  transform: scale(1.02);
-}
+/* MEDIA QUERY - 1000 PX */
 
-.btn:active {
-  color: #f08c00;
-}
+@media only screen and (max-width: 1040px) {
+  .itemsGrid {
+    gap: 6rem;
+  }
+  .img {
+    width: 15rem;
+    height: 15rem;
+  }
+  .btnFlex {
+    justify-content: start;
+    width: 15rem;
+  }
 
-.btnFlex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .itemHeading {
+    font-size: 1.2rem;
+    width: 10rem;
+  }
+
+  .price {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    height: 2.8rem;
+    width: 18rem;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .itemsGrid {
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    max-width: 60rem;
+  }
+  .img {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .itemHeading {
+    font-size: 1.2rem;
+    width: 10rem;
+  }
+
+  .price {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    height: 2.8rem;
+    width: 10rem;
+    font-size: 1rem;
+  }
+  .btnFlex {
+    justify-content: center;
+  }
+
+  .item {
+    align-items: center;
+  }
 }

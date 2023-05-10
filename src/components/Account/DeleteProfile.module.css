@@ -30,7 +30,7 @@
   color: inherit;
 }
 
-.form {
+.formCopy {
   background-color: white;
   padding: 2rem;
   display: flex;
@@ -38,6 +38,8 @@
   flex-direction: column;
   align-items: center;
   justify-self: start;
+  width: 60rem;
+  height: 39.6rem;
 
   gap: 3rem;
   border: 0.5px solid rgba(0, 0, 0, 0.274);
@@ -105,19 +107,50 @@
 }
 
 .formh2 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 500;
   margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 .active {
   color: #f08c00;
 }
 
-/* 1200 PX */
+.warning {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  text-align: center;
+  max-width: 40rem;
+}
+.warning2 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-top: 6.4rem;
+  text-align: center;
+}
+
+.deleteButton {
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.308);
+}
+.deleteButton:hover,
+.deleteButton:active {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.goodbye {
+  margin-top: 1.2rem;
+  /* padding-top: 4.8rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
 @media only screen and (max-width: 1200px) {
-  .form {
+  .formCopy {
     width: 50rem;
   }
   .formInput {
@@ -127,22 +160,53 @@
   .formInputAdd {
     width: 42rem;
   }
+  .formh2 {
+    font-size: 2rem;
+  }
+
+  .warning {
+    font-size: 1.4rem;
+  }
+  .warning2 {
+    font-size: 1.4rem;
+  }
+
+  .deleteButton {
+    text-align: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .aside span {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (max-width: 800px) {
-  .form {
+  .formCopy {
     width: 40rem;
   }
   .formInput {
     width: 15rem;
   }
 
+  .warning {
+    font-size: 1.3rem;
+  }
+  .warning2 {
+    font-size: 1.3rem;
+  }
+
   .formInputAdd {
     width: 32rem;
   }
+  .aside span {
+    font-size: 1.4rem;
+  }
 }
 @media only screen and (max-width: 640px) {
-  .form {
+  .formCopy {
     width: 30rem;
   }
   .formInput {
@@ -151,6 +215,13 @@
 
   .formInputAdd {
     width: 28rem;
+  }
+
+  .warning {
+    font-size: 1.2rem;
+  }
+  .warning2 {
+    font-size: 1.2rem;
   }
 
   .label {
@@ -163,6 +234,7 @@
   }
   .formh2 {
     font-size: 1.6rem;
+    text-align: center;
   }
 
   .aside {
@@ -171,7 +243,7 @@
     text-align: center;
   }
 
-  .aside a {
+  .aside span {
     font-size: 1.2rem;
   }
 
@@ -201,11 +273,11 @@
     text-align: center;
   }
 
-  .aside a {
+  .aside span {
     font-size: 1rem;
   }
 
-  .form {
+  .formCopy {
     width: 25rem;
   }
   .formInput {
