@@ -1,3 +1,7 @@
+.vh100 {
+  min-height: 100vh;
+}
+
 .hero {
   display: grid;
   gap: 6.4rem;

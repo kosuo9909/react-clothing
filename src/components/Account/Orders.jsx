@@ -14,7 +14,9 @@ const Orders = () => {
   return (
     <Fragment>
       <div className={styles.cont}>
-        <h1 className={styles.heading}>История на поръчките</h1>
+        {fetchedOrders?.data && (
+          <h1 className={styles.heading}>История на поръчките</h1>
+        )}
         {/* <div className={styles.container}> */}
         {fetchedOrders?.data ? (
           Object.values(fetchedOrders.data).map((order) => (
@@ -27,9 +29,9 @@ const Orders = () => {
           //   <div className={styles.orderTotal}>Order Total: </div>
           // </div>
           <div className={styles.noOrdersGrp}>
-            <div className={styles.noOrders}> You have no orders yet. </div>
+            <div className={styles.noOrders}> Все още нямаш поръчки. </div>
             <Link to='/shop' className={styles.btn}>
-              Shop now
+              Пазарувай
             </Link>
           </div>
         )}

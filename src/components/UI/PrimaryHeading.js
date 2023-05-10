@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 const PrimaryHeading = () => {
   return (
     <Fragment>
-      <section>
+      <section className={styles.vh100}>
         <div className={styles.hero}>
           <div className={styles.primaryBox}>
             <h1 className={styles.headingPrimary}>
