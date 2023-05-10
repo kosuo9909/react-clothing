@@ -14,6 +14,7 @@ import Profile from './components/Account/Profile';
 import { useSelector } from 'react-redux';
 import Protected from './components/Protected';
 import ReLogin from './components/Account/Relogin';
+import DeleteProfile from './components/Account/DeleteProfile';
 function App() {
   // return <RouterProvider router={router} />;
   const isSignedIn = useSelector((state) => state.user.isLoggedIn);
@@ -46,6 +47,14 @@ function App() {
           element: (
             <Protected isSignedIn={isSignedIn}>
               <Profile />
+            </Protected>
+          ),
+        },
+        {
+          path: 'unsubscribe',
+          element: (
+            <Protected isSignedIn={isSignedIn}>
+              <DeleteProfile />
             </Protected>
           ),
         },

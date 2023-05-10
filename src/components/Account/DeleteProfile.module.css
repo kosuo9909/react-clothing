@@ -30,7 +30,7 @@
   color: inherit;
 }
 
-.form {
+.formCopy {
   background-color: white;
   padding: 2rem;
   display: flex;
@@ -38,6 +38,8 @@
   flex-direction: column;
   align-items: center;
   justify-self: start;
+  width: 60rem;
+  height: 39.6rem;
 
   gap: 3rem;
   border: 0.5px solid rgba(0, 0, 0, 0.274);
@@ -105,11 +107,44 @@
 }
 
 .formh2 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 500;
   margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 .active {
   color: #f08c00;
+}
+
+.warning {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  text-align: center;
+  max-width: 40rem;
+}
+.warning2 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-top: 6.4rem;
+  text-align: center;
+}
+
+.deleteButton {
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.308);
+}
+.deleteButton:hover,
+.deleteButton:active {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.goodbye {
+  margin-top: 1.2rem;
+  /* padding-top: 4.8rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
