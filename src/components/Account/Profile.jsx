@@ -6,36 +6,13 @@ import { database } from '../../firebase/firebase';
 import { ref, set } from 'firebase/database';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { deleteUser, getAuth } from 'firebase/auth';
 
 const Profile = () => {
-  const auth = getAuth();
-  const user = auth.currentUser;
   const userID = useSelector((state) => state.user.currentUserID);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
   const navigate = useNavigate();
-
-  const [isDelete, setIsDelete] = useState(false);
-
-  const deleteUserHandler = () => {
-    setIsDelete(true);
-  };
-
-  useEffect(() => {
-    if (isDelete) {
-      deleteUser(user)
-        .then(() => {})
-        .catch((error) => {
-          if (
-            error.message === 'Firebase: Error (auth/requires-recent-login).'
-          ) {
-            navigate('/relogin');
-          }
-        });
-    }
-  }, [user, isDelete, navigate]);
 
   const fetchedUsers = useQuery(['userData', userID], () =>
     FetchProfile(userID)
@@ -119,7 +96,6 @@ const Profile = () => {
             </button>
           </form>
         </div>
-        <button onClick={deleteUserHandler}>Delete Profile</button>
       </div>
     </Fragment>
   );
