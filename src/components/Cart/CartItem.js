@@ -13,7 +13,10 @@ const CartItem = (props) => {
               src={props.item.image}
               alt='alo'
             ></img>
-            <p className={styles.cartName}>{props.item.item}</p>
+            <div className={styles.right}>
+              <p className={styles.cartName}>{props.item.item}</p>
+              {/* <p className={styles.cartName}>{props.item.description}</p> */}
+            </div>
             <CartItemPriceDetails
               quantity={props.item.quantity}
               price={props.item.price}

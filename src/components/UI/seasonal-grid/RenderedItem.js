@@ -1,11 +1,10 @@
 import { Fragment } from 'react';
 import styles from './SpringComponent.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { add_item } from '../../../app/CartSlice';
 
 const RenderedItem = (props) => {
   const dispatch = useDispatch();
-  const item2 = useSelector((state) => state.cart.item);
 
   const addToCartHandler = (e) => {
     e.preventDefault();
@@ -17,6 +16,7 @@ const RenderedItem = (props) => {
           item: props.item.name,
           price: props.item.price,
           image: props.item.image,
+          description: props.item.description,
         },
       })
     );
@@ -31,7 +31,7 @@ const RenderedItem = (props) => {
         </div>
         <div className={styles.btnFlex}>
           <button onClick={addToCartHandler} className={styles.btn}>
-            Add to cart
+            Добави
           </button>
         </div>
       </div>

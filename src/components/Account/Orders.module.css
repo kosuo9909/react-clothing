@@ -12,6 +12,9 @@
   align-items: center;
   /* gap: 20rem; */
 }
+.cont {
+  min-height: 100vh;
+}
 .btn,
 .btn:link,
 .btn:visited {
@@ -77,4 +80,10 @@
   gap: 3rem;
   align-items: center;
   justify-content: center;
+}
+
+.heading {
+  margin-top: 9.6rem;
+  text-align: center;
+  font-size: 3.2rem;
 }

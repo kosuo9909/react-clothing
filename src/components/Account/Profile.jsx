@@ -1,18 +1,41 @@
 import styles from './Profile.module.css';
 import { useQuery } from '@tanstack/react-query';
 import FetchProfile from '../../api/fetchProfile';
-import { Fragment, useRef } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { database } from '../../firebase/firebase';
 import { ref, set } from 'firebase/database';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { deleteUser, getAuth } from 'firebase/auth';
 
 const Profile = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
   const userID = useSelector((state) => state.user.currentUserID);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
   const navigate = useNavigate();
+
+  const [isDelete, setIsDelete] = useState(false);
+
+  const deleteUserHandler = () => {
+    setIsDelete(true);
+  };
+
+  useEffect(() => {
+    if (isDelete) {
+      deleteUser(user)
+        .then(() => {})
+        .catch((error) => {
+          if (
+            error.message === 'Firebase: Error (auth/requires-recent-login).'
+          ) {
+            navigate('/relogin');
+          }
+        });
+    }
+  }, [user, isDelete, navigate]);
 
   const fetchedUsers = useQuery(['userData', userID], () =>
     FetchProfile(userID)
@@ -40,14 +63,14 @@ const Profile = () => {
 
   return (
     <Fragment>
-      <div>
+      <div className={styles.cont}>
         <form className={styles.form}>
-          <h2 className={styles.formh2}>Update your delivery details here</h2>
+          <h2 className={styles.formh2}>Обнови данните ти за доставка тук</h2>
 
           <div className={styles.group}>
             <div className={styles.group2items}>
               <label className={styles.label} htmlFor='firstname'>
-                Name
+                Име
               </label>
               <input
                 id='firstname'
@@ -58,7 +81,7 @@ const Profile = () => {
             </div>
             <div className={styles.group2items}>
               <label className={styles.label} htmlFor='phone'>
-                Phone Number
+                Телефонен номер
               </label>
               <input
                 type='tel'
@@ -71,7 +94,7 @@ const Profile = () => {
           </div>
           <div className={styles.group2items}>
             <label className={styles.label} htmlFor='address'>
-              Address
+              Адрес
             </label>
             <input
               ref={addressRef}
@@ -81,9 +104,10 @@ const Profile = () => {
             ></input>
           </div>
           <button onClick={submitHandler} className={styles.btn}>
-            Save Profile
+            Запази профил
           </button>
         </form>
+        <button onClick={deleteUserHandler}>Delete Profile</button>
       </div>
     </Fragment>
   );

@@ -13,6 +13,7 @@ import OrdersPage from './pages/OrdersPage';
 import Profile from './components/Account/Profile';
 import { useSelector } from 'react-redux';
 import Protected from './components/Protected';
+import ReLogin from './components/Account/Relogin';
 function App() {
   // return <RouterProvider router={router} />;
   const isSignedIn = useSelector((state) => state.user.isLoggedIn);
@@ -31,6 +32,7 @@ function App() {
         },
         { path: 'register', element: <Register /> },
         { path: 'login', element: <Login /> },
+        { path: 'relogin', element: <ReLogin /> },
         {
           path: 'orders',
           element: (

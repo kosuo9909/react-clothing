@@ -1,15 +1,16 @@
-import styles from './Register.module.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import styles from './Relogin.module.css';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Register = () => {
+const ReLogin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [error, setError] = useState('');
+
   const [isTouchedEmail, setIsTouchedEmail] = useState('');
   const [isTouchedPassword, setIsTouchedPassword] = useState('');
   const [isTouchedPassword2, setIsTouchedPassword2] = useState('');
@@ -38,7 +39,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
 
     if (password !== password2) {
       setError('Passwords do not match!');
@@ -55,40 +55,53 @@ const Register = () => {
       setEmail('');
       return;
     }
-    await createUserWithEmailAndPassword(auth, email, password);
-    setPassword('');
-    setPassword2('');
-    setEmail('');
-    navigate('/shop');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      setPassword('');
+      setPassword2('');
+      setEmail('');
+    } catch (error) {
+      if (error.message === 'Firebase: Error (auth/user-not-found).') {
+        setError('This email address does not exist.');
+        setEmail('');
+      }
+      if (error.message === 'Firebase: Error (auth/wrong-password).') {
+        setError('Incorrect password.');
+        setPassword('');
+        setPassword2('');
+      }
+      console.log(error);
+    }
+    navigate('../profile', { replace: true });
     navigate(0);
   };
 
   return (
     <div className={styles.Div100vh}>
       <div className={styles.signUpDiv}>
-        <h1 className={styles.greeting}>Hey there!</h1>
+        <h1 className={styles.greeting}>
+          Please login again to complete your request.
+        </h1>
         <form className={styles.form} onSubmit={handleSubmit}>
           {isEmptyEmail && <label for='email'>This field is required</label>}
+
           <input
             className={isEmptyEmail ? styles.inputRed : styles.input}
-            id='email'
             type='text'
             placeholder='Email'
             value={email}
-            required
             onChange={(event) => {
               setEmail(event.target.value);
               setIsEmptyEmail(false);
             }}
             onBlur={blurHandlerEmail}
+            required
           ></input>
           {isEmptyPassword && (
             <label for='password'>This field is required</label>
           )}
-
           <input
             className={isEmptyPassword ? styles.inputRed : styles.input}
-            id='password'
             type='password'
             placeholder='Password'
             value={password}
@@ -102,10 +115,8 @@ const Register = () => {
           {isEmptyPassword2 && (
             <label for='password'>This field is required</label>
           )}
-
           <input
             className={isEmptyPassword2 ? styles.inputRed : styles.input}
-            id='password2'
             type='password'
             placeholder='Repeat password'
             value={password2}
@@ -118,18 +129,18 @@ const Register = () => {
           ></input>
           {error && <div className={styles.error}>{error}</div>}
           <button className={styles.btn} type='submit'>
-            Register
+            Log In
           </button>
-          <div className={styles.alreadyRegistered}>
-            Already registered?{' '}
-            <Link className={styles.alreadyRegisteredLink} to='/login'>
-              Log in.
-            </Link>
-          </div>
+          {/* <div className={styles.noAccount}>
+            You don't have an account?{' '}
+            <Link className={styles.noAccountLink} to='/register'>
+              Register now.
+            </Link>{' '}
+          </div> */}
         </form>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default ReLogin;

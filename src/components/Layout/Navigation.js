@@ -32,7 +32,7 @@ const Navigation = () => {
         </svg>
 
         <Link className={styles.link} to='shop'>
-          <span>Shop</span>
+          <span>Пазарувай</span>
         </Link>
       </div>
 
@@ -55,7 +55,7 @@ const Navigation = () => {
             </svg>
 
             <span className={styles.linkDrop} to='#'>
-              <span>Account</span>
+              <span>Акаунт</span>
               <div className={styles.dropDown}>
                 <div className={styles.groupDrop}>
                   <svg
@@ -74,7 +74,7 @@ const Navigation = () => {
                   </svg>
 
                   <Link className={styles.linkDrop} to='/profile'>
-                    Profile
+                    Профил
                   </Link>
                 </div>
                 <div className={styles.groupDrop}>
@@ -94,7 +94,7 @@ const Navigation = () => {
                   </svg>
 
                   <Link className={styles.linkDrop} to='/orders'>
-                    Orders
+                    Поръчки
                   </Link>
                 </div>
                 <div className={styles.groupDrop}>
@@ -117,7 +117,7 @@ const Navigation = () => {
                     className={styles.linkDrop}
                     href='/'
                   >
-                    Logout
+                    Изход
                   </span>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const Navigation = () => {
           </svg>
 
           <Link className={styles.linkDrop} to='#'>
-            <span>Account</span>
+            <span>Акаунт</span>
             <div className={styles.dropDown}>
               <div className={styles.groupDrop}>
                 <svg
@@ -157,14 +157,14 @@ const Navigation = () => {
                   stroke='currentColor'
                 >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     d='M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75'
                   />
                 </svg>
 
                 <Link className={styles.link} to='login'>
-                  <span>Login</span>
+                  <span>Вход</span>
                 </Link>
               </div>
               <div className={styles.groupDrop}>
@@ -172,19 +172,19 @@ const Navigation = () => {
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 24 24'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                   stroke='currentColor'
                   className={styles.iconSmall}
                 >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     d='M12 4.5v15m7.5-7.5h-15'
                   />
                 </svg>
 
                 <Link className={styles.link} to='register'>
-                  <span>Register</span>
+                  <span>Регистрация</span>
                 </Link>
               </div>
             </div>
@@ -210,7 +210,7 @@ const Navigation = () => {
         </svg>
 
         <Link className={styles.link} to='shop'>
-          <span>About</span>
+          <span>Относно</span>
         </Link>
       </div>
       <div className={styles.btnGroup}>
@@ -235,7 +235,7 @@ const Navigation = () => {
         )}
 
         <Link className={styles.link} to='cart'>
-          <span>Cart</span>
+          <span>Количка</span>
         </Link>
       </div>
     </div>

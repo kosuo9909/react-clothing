@@ -31,26 +31,30 @@ const Cart = () => {
 
   return (
     <Fragment>
-      <div className={styles.mainCart}>
-        <div className={styles.cart}>
+      <div className={styles.div100vh}>
+        <div className={styles.cartState}>
           {itemsCount > 0 ? (
-            <h1>Your shopping cart</h1>
+            <h1 className={styles.existingCart}>Твоята количка</h1>
           ) : (
-            <div>
-              <h1 className={styles.emptyCart}>Your shopping cart is empty</h1>
+            <div className={styles.emptyCartState}>
+              <h1 className={styles.emptyCart}>Количката ти е празна</h1>
               <Link to='/shop' className={styles.btn}>
-                Shop now
+                Пазарувай
               </Link>
             </div>
           )}
-          {cartTotalSelector.map((item) => (
-            <div key={item.id}>
-              <CartItem item={item} />
-            </div>
-          ))}
         </div>
+        <div className={styles.mainCart}>
+          <div className={styles.cart}>
+            {cartTotalSelector.map((item) => (
+              <div key={item.id}>
+                <CartItem item={item} />
+              </div>
+            ))}
+          </div>
 
-        {itemsCount > 0 && <CartOrderDetails />}
+          {itemsCount > 0 && <CartOrderDetails />}
+        </div>
       </div>
     </Fragment>
   );
