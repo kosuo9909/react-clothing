@@ -12,6 +12,9 @@
   align-items: center;
   /* gap: 20rem; */
 }
+.cont {
+  min-height: 100vh;
+}
 .btn,
 .btn:link,
 .btn:visited {

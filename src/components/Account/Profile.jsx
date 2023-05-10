@@ -40,7 +40,7 @@ const Profile = () => {
 
   return (
     <Fragment>
-      <div>
+      <div className={styles.cont}>
         <form className={styles.form}>
           <h2 className={styles.formh2}>Обнови данните ти за доставка тук</h2>
 

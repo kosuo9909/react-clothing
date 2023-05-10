@@ -13,25 +13,27 @@ const Orders = () => {
   console.log(fetchedOrders.data);
   return (
     <Fragment>
-      <h1 className={styles.heading}>История на поръчките</h1>
-      {/* <div className={styles.container}> */}
-      {fetchedOrders?.data ? (
-        Object.values(fetchedOrders.data).map((order) => (
-          <OrdersComponent order={order} />
-        ))
-      ) : (
-        // fetchedOrders.data.map((order) => <FetchOrders order={order} />)
-        // <div className={styles.orders}>
-        //   <div className={styles.orderNum}> Order Number: XXXX</div>
-        //   <div className={styles.orderTotal}>Order Total: </div>
-        // </div>
-        <div className={styles.noOrdersGrp}>
-          <div className={styles.noOrders}> You have no orders yet. </div>
-          <Link to='/shop' className={styles.btn}>
-            Shop now
-          </Link>
-        </div>
-      )}
+      <div className={styles.cont}>
+        <h1 className={styles.heading}>История на поръчките</h1>
+        {/* <div className={styles.container}> */}
+        {fetchedOrders?.data ? (
+          Object.values(fetchedOrders.data).map((order) => (
+            <OrdersComponent order={order} />
+          ))
+        ) : (
+          // fetchedOrders.data.map((order) => <FetchOrders order={order} />)
+          // <div className={styles.orders}>
+          //   <div className={styles.orderNum}> Order Number: XXXX</div>
+          //   <div className={styles.orderTotal}>Order Total: </div>
+          // </div>
+          <div className={styles.noOrdersGrp}>
+            <div className={styles.noOrders}> You have no orders yet. </div>
+            <Link to='/shop' className={styles.btn}>
+              Shop now
+            </Link>
+          </div>
+        )}
+      </div>
     </Fragment>
   );
 };

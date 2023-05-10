@@ -1,6 +1,25 @@
 .footer {
-  position: absolute;
+  /* position: absolute; */
+  /* min-height: 100vh; */
   left: 0;
+  opacity: 80%;
   bottom: 0;
   right: 0;
+  padding: 1rem;
+  padding-left: 4.8rem;
+  padding-right: 4.8rem;
+  /* margin-top: 4.8rem; */
+  display: flex;
+  gap: 10rem;
+  justify-content: space-between;
+  align-items: center;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.096); */
+}
+
+.icon {
+  height: 3.2rem;
+}
+
+.divEl {
+  letter-spacing: 1px;
 }
