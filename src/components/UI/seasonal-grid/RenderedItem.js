@@ -31,7 +31,7 @@ const RenderedItem = (props) => {
         </div>
         <div className={styles.btnFlex}>
           <button onClick={addToCartHandler} className={styles.btn}>
-            Add to cart
+            Добави
           </button>
         </div>
       </div>

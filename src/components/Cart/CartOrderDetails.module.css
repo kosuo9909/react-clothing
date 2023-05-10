@@ -1,5 +1,6 @@
 .orderSummaryLine {
-  width: 34rem;
+  width: 38rem;
+  font-size: 1.8rem;
   display: flex;
   justify-content: space-between;
   gap: 10rem;
@@ -9,7 +10,7 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
   padding: 2.4rem;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.253);
   border-radius: 10px;
@@ -30,4 +31,8 @@
   border: none;
   border-radius: 5px;
   font-size: 1.6rem;
+}
+
+.summaryLight {
+  color: #555;
 }

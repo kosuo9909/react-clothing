@@ -13,6 +13,7 @@ const Orders = () => {
   console.log(fetchedOrders.data);
   return (
     <Fragment>
+      <h1 className={styles.heading}>История на поръчките</h1>
       {/* <div className={styles.container}> */}
       {fetchedOrders?.data ? (
         Object.values(fetchedOrders.data).map((order) => (

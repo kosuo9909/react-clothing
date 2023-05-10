@@ -77,30 +77,30 @@ const CartOrderDetails = (props) => {
     <div>
       {itemsCount > 0 ? (
         <div className={styles.orderDetails}>
-          <p>Order details</p>
+          <p>Информация за поръчката</p>
           <div className={styles.orderSummaryLine}>
-            <span>Items Total: </span>
+            <span className={styles.summaryLight}>Всички продукти: </span>
             <span>{total} лв. </span>
           </div>
           <div className={styles.orderSummaryLine}>
-            <span>Shipping: </span>
+            <span className={styles.summaryLight}>Цена за доставка: </span>
             <span>
               {total < 50 ? <span>{shippingCost.toFixed(2)} лв.</span> : 'FREE'}{' '}
             </span>
           </div>
           <div className={styles.orderSummaryLine}>
-            <span>Order Total: </span>
+            <span className={styles.summaryLight}>Общо: </span>
             <span>{(Number(total) + shippingCost).toFixed(2)} лв.</span>
           </div>
           {isLoggedIn ? (
             <button className={styles.btn} onClick={submitHandler}>
               {/* {postData.isLoading && postData.isFetching */}
-              {isSubmitting ? 'Submitting order' : 'Submit order'}
+              {isSubmitting ? 'Submitting order' : 'Изпрати поръчка'}
             </button>
           ) : (
             <Link to='/login'>
               <button className={styles.btn} onClick={submitHandler}>
-                Log into your account to submit
+                Влез в акаунта си, за да поръчаш
               </button>
             </Link>
           )}

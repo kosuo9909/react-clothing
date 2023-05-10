@@ -78,3 +78,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.heading {
+  margin-top: 9.6rem;
+  text-align: center;
+  font-size: 3.2rem;
+}

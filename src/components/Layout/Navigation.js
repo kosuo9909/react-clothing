@@ -32,7 +32,7 @@ const Navigation = () => {
         </svg>
 
         <Link className={styles.link} to='shop'>
-          <span>Shop</span>
+          <span>Пазарувай</span>
         </Link>
       </div>
 
@@ -55,7 +55,7 @@ const Navigation = () => {
             </svg>
 
             <span className={styles.linkDrop} to='#'>
-              <span>Account</span>
+              <span>Акаунт</span>
               <div className={styles.dropDown}>
                 <div className={styles.groupDrop}>
                   <svg
@@ -74,7 +74,7 @@ const Navigation = () => {
                   </svg>
 
                   <Link className={styles.linkDrop} to='/profile'>
-                    Profile
+                    Профил
                   </Link>
                 </div>
                 <div className={styles.groupDrop}>
@@ -94,7 +94,7 @@ const Navigation = () => {
                   </svg>
 
                   <Link className={styles.linkDrop} to='/orders'>
-                    Orders
+                    Поръчки
                   </Link>
                 </div>
                 <div className={styles.groupDrop}>
@@ -117,7 +117,7 @@ const Navigation = () => {
                     className={styles.linkDrop}
                     href='/'
                   >
-                    Logout
+                    Изход
                   </span>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const Navigation = () => {
           </svg>
 
           <Link className={styles.linkDrop} to='#'>
-            <span>Account</span>
+            <span>Акаунт</span>
             <div className={styles.dropDown}>
               <div className={styles.groupDrop}>
                 <svg
@@ -164,7 +164,7 @@ const Navigation = () => {
                 </svg>
 
                 <Link className={styles.link} to='login'>
-                  <span>Login</span>
+                  <span>Вход</span>
                 </Link>
               </div>
               <div className={styles.groupDrop}>
@@ -184,7 +184,7 @@ const Navigation = () => {
                 </svg>
 
                 <Link className={styles.link} to='register'>
-                  <span>Register</span>
+                  <span>Регистрация</span>
                 </Link>
               </div>
             </div>
@@ -210,7 +210,7 @@ const Navigation = () => {
         </svg>
 
         <Link className={styles.link} to='shop'>
-          <span>About</span>
+          <span>Относно</span>
         </Link>
       </div>
       <div className={styles.btnGroup}>
@@ -235,7 +235,7 @@ const Navigation = () => {
         )}
 
         <Link className={styles.link} to='cart'>
-          <span>Cart</span>
+          <span>Количка</span>
         </Link>
       </div>
     </div>

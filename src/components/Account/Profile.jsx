@@ -42,12 +42,12 @@ const Profile = () => {
     <Fragment>
       <div>
         <form className={styles.form}>
-          <h2 className={styles.formh2}>Update your delivery details here</h2>
+          <h2 className={styles.formh2}>Обнови данните ти за доставка тук</h2>
 
           <div className={styles.group}>
             <div className={styles.group2items}>
               <label className={styles.label} htmlFor='firstname'>
-                Name
+                Име
               </label>
               <input
                 id='firstname'
@@ -58,7 +58,7 @@ const Profile = () => {
             </div>
             <div className={styles.group2items}>
               <label className={styles.label} htmlFor='phone'>
-                Phone Number
+                Телефонен номер
               </label>
               <input
                 type='tel'
@@ -71,7 +71,7 @@ const Profile = () => {
           </div>
           <div className={styles.group2items}>
             <label className={styles.label} htmlFor='address'>
-              Address
+              Адрес
             </label>
             <input
               ref={addressRef}
@@ -81,7 +81,7 @@ const Profile = () => {
             ></input>
           </div>
           <button onClick={submitHandler} className={styles.btn}>
-            Save Profile
+            Запази профил
           </button>
         </form>
       </div>

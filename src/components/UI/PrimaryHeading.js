@@ -9,15 +9,15 @@ const PrimaryHeading = () => {
         <div className={styles.hero}>
           <div className={styles.primaryBox}>
             <h1 className={styles.headingPrimary}>
-              Your Mobile Journey Begins Here.
+              Мобилното ти приключение започва тук.
             </h1>
 
             <p className={styles.headingDescription}>
-              Get Your Thumb Workout: Endless Scrolling Awaits at Our Mobile
-              Shop!
+              Тренировка за палеца: Безкрайно скролване от нашия мобилен
+              магазин!
             </p>
             <Link to='/shop' className={styles.headingBtn}>
-              Experience innovation
+              Насладете се на иновациите{' '}
             </Link>
           </div>
           <div className={styles.heroImg}>

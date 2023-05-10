@@ -34,12 +34,12 @@ const Cart = () => {
       <div className={styles.mainCart}>
         <div className={styles.cart}>
           {itemsCount > 0 ? (
-            <h1>Your shopping cart</h1>
+            <h1>Твоята количка</h1>
           ) : (
             <div>
-              <h1 className={styles.emptyCart}>Your shopping cart is empty</h1>
+              <h1 className={styles.emptyCart}>Количката ти е празна</h1>
               <Link to='/shop' className={styles.btn}>
-                Shop now
+                Пазарувай
               </Link>
             </div>
           )}

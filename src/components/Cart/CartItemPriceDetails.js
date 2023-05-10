@@ -67,7 +67,7 @@ const CartItemPriceDetails = (props) => {
         </button>
       </div>
       <button onClick={removeItem} className={styles.btn}>
-        Remove
+        Премахни
       </button>
     </div>
   );
