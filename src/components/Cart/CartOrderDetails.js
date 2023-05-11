@@ -61,6 +61,7 @@ const CartOrderDetails = (props) => {
       date: date.toLocaleDateString('bg-BG', options),
     });
     dispatch(clear_cart());
+    navigate('/orders');
   };
 
   const [shippingCost, setShippingCost] = useState(7);

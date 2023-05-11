@@ -86,7 +86,7 @@ const MobileNavigation = () => {
         )}
 
         <nav className={styles.flexDiv}>
-          <Link to='/shop' onClick={removeNav} className={styles.link}>
+          <Link onClick={removeNav} to='/shop' className={styles.link}>
             Пазарувай
           </Link>
           <span onClick={showDropHandler} className={styles.linkDrop}>
