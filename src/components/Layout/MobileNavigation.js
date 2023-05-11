@@ -120,16 +120,33 @@ const MobileNavigation = () => {
             )}
             {!drop && (
               <div className={styles.dropContent}>
-                {/* <span>Login</span>
-              <span>Register</span> */}
-                <span>Profile</span>
-                <span>Logout</span>
+                {!loginState && (
+                  <>
+                    <Link to='/login' className={styles.link}>
+                      Login
+                    </Link>
+                    <Link to='/register' className={styles.link}>
+                      Register
+                    </Link>
+                  </>
+                )}
+                {loginState && (
+                  <>
+                    <Link to='/profile' className={styles.link}>
+                      Profile
+                    </Link>
+                    <Link onClick={logoutHandler} className={styles.link}>
+                      Logout
+                    </Link>
+                  </>
+                )}
               </div>
             )}
           </span>
           <Link className={styles.link}>Относно</Link>
           <Link to='/cart' className={styles.link}>
             Количка
+            <span className={styles.spanCartWarning}>{cartCount}</span>
           </Link>
         </nav>
       </div>
