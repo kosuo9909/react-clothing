@@ -89,3 +89,32 @@
   transform: scale(1.05);
   color: white;
 }
+
+@media only screen and (max-width: 1000px) {
+  .img {
+    height: 32rem;
+  }
+  .details {
+    height: 39rem;
+    width: 32rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .img {
+    height: 30rem;
+  }
+  .details {
+    height: 37rem;
+    width: 30rem;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .button {
+    font-size: 1.8rem;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+}
