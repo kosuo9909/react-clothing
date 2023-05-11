@@ -80,3 +80,9 @@
   text-decoration: none;
   color: #a86200;
 }
+
+@media only screen and (max-width: 420px) {
+  .signUpDiv {
+    width: 36rem;
+  }
+}

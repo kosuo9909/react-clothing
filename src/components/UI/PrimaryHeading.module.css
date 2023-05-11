@@ -163,6 +163,8 @@
   }
   .primaryBox {
     padding: 0rem 9.6rem;
+    width: 70%;
+
     /* align-items: center; */
   }
 }
@@ -170,7 +172,8 @@
 @media only screen and (max-width: 810px) {
   .primaryBox {
     padding: 0rem;
-    align-items: center;
+    align-items: start;
+    /* padding: 0rem 9.6rem; */
   }
   .headingBtn,
   .headingBtn:link,
@@ -181,10 +184,6 @@
   .hero {
     display: flex;
     flex-direction: column;
-    padding: 3.2rem 6.4rem;
-  }
-
-  .primaryBox {
-    padding: 0rem 9.6rem;
+    padding: 3.2rem 9.6rem;
   }
 }
