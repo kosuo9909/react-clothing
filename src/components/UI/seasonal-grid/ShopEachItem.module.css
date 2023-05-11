@@ -8,8 +8,15 @@
   display: flex;
   max-width: 120rem;
   align-items: center;
+  justify-content: center;
   gap: 10rem;
   padding-top: 9.6rem;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .img {
@@ -20,7 +27,7 @@
 
 .details {
   padding: 2rem;
-  height: 42rem;
+  height: 49rem;
   width: 42rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -46,4 +53,39 @@
 .iconSpec {
   height: 3rem;
   margin-right: 0.5rem;
+}
+
+.button,
+.button:link,
+.button:visited {
+  height: 4rem;
+  width: 25rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  background-color: #f08c00;
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* Put transition on original "state" */
+  /* transition: background-color 0.3s; */
+  transition: all 0.3s;
+}
+
+.button:hover,
+.button:active {
+  transform: scale(1.05);
+  color: white;
 }

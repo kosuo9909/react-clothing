@@ -1,19 +1,46 @@
-import { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './ShopEachItem.module.css';
-import { useParams } from 'react-router-dom';
+import { add_item } from '../../../app/CartSlice';
 
 const ShopEachItem = (props) => {
-  let { itemId } = useParams();
-  let test = useParams();
-  console.log(test);
+  const dispatch = useDispatch();
+
+  const addToCartHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(
+      add_item({
+        item: {
+          id: props.id,
+          item: props.item.name,
+          price: props.item.price,
+          image: props.item.image,
+          description: props.item.description,
+          production_year: props.item.production_year,
+          display_type: props.item.display_type,
+          display_size: props.item.display_size,
+          operating_system: props.item.operating_system,
+          ram: props.item.ram,
+          storage: props.item.storage,
+        },
+      })
+    );
+  };
   return (
     <div className={styles.vh100}>
       <div className={styles.grid}>
-        <img
-          className={styles.img}
-          src={props.item.image}
-          alt='the phone you picked'
-        ></img>
+        <div className={styles.imageContainer}>
+          <img
+            className={styles.img}
+            src={props.item.image}
+            alt='the phone you picked'
+          ></img>
+          <div className={styles.priceContainer}>
+            <button onClick={addToCartHandler} className={styles.button}>
+              Добави в количката
+            </button>
+          </div>
+        </div>
 
         <div className={styles.details}>
           <div className={styles.line}>
@@ -80,29 +107,7 @@ const ShopEachItem = (props) => {
               {props.item.display_type}
             </span>
           </div>
-          <div className={styles.line}>
-            <svg
-              viewBox='0 0 512 512'
-              fill='currentColor'
-              // height='1em'
-              // width='1em'
-              className={styles.icon}
-            >
-              <path
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={32}
-                d='M435.25 48h-122.9a14.46 14.46 0 00-10.2 4.2L56.45 297.9a28.85 28.85 0 000 40.7l117 117a28.85 28.85 0 0040.7 0L459.75 210a14.46 14.46 0 004.2-10.2v-123a28.66 28.66 0 00-28.7-28.8z'
-              />
-              <path d='M384 160a32 32 0 1132-32 32 32 0 01-32 32z' />
-            </svg>
-            <span>
-              <span className={styles.lightGrey}>Цена</span> &#8212;{' '}
-              {props.item.price} лв.
-            </span>
-          </div>
+
           <div className={styles.line}>
             <svg
               viewBox='0 0 21 21'
@@ -187,6 +192,29 @@ const ShopEachItem = (props) => {
               <span className={styles.lightGrey}> Операционна система </span>{' '}
               &#8212;
               {props.item.operating_system}
+            </span>
+          </div>
+          <div className={styles.line}>
+            <svg
+              viewBox='0 0 512 512'
+              fill='currentColor'
+              // height='1em'
+              // width='1em'
+              className={styles.icon}
+            >
+              <path
+                fill='none'
+                stroke='currentColor'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={32}
+                d='M435.25 48h-122.9a14.46 14.46 0 00-10.2 4.2L56.45 297.9a28.85 28.85 0 000 40.7l117 117a28.85 28.85 0 0040.7 0L459.75 210a14.46 14.46 0 004.2-10.2v-123a28.66 28.66 0 00-28.7-28.8z'
+              />
+              <path d='M384 160a32 32 0 1132-32 32 32 0 01-32 32z' />
+            </svg>
+            <span>
+              <span className={styles.lightGrey}>Цена</span> &#8212;{' '}
+              {props.item.price} лв.
             </span>
           </div>
         </div>
