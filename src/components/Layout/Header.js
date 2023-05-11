@@ -13,6 +13,7 @@ import {
 import Footer from './Footer';
 import FetchProfile from '../../api/fetchProfile';
 import { useQuery } from '@tanstack/react-query';
+import MobileNavigation from './MobileNavigation';
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -62,14 +63,15 @@ const Header = (props) => {
   return (
     <Fragment>
       <header className={styles.header}>
-        <Link to='/'>
+        {/* <Link to='/'>
           <img
             className={styles.img}
             src={require('../../images/logo.png')}
             alt='K&E Logo'
           ></img>
-        </Link>
-        <Navigation />
+        </Link> */}
+        <MobileNavigation />
+        {/* <Navigation /> */}
       </header>
       <Outlet />
       <Footer />
