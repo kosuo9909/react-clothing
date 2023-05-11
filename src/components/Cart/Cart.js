@@ -52,8 +52,9 @@ const Cart = () => {
               </div>
             ))}
           </div>
-
-          {itemsCount > 0 && <CartOrderDetails />}
+          <div className={styles.orderDetails}>
+            {itemsCount > 0 && <CartOrderDetails />}
+          </div>
         </div>
       </div>
     </Fragment>

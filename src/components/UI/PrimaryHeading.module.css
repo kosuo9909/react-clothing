@@ -1,29 +1,34 @@
 .vh100 {
   min-height: 100vh;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
 .hero {
   display: grid;
   gap: 6.4rem;
   justify-content: center;
+  align-items: center;
   grid-template-columns: 2fr 2fr;
   padding: 3.2rem 12.8rem;
   margin-top: 4.8rem;
 }
 
 .primaryBox {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  padding: 9.6rem;
+  padding: 4.8rem;
   gap: 3.2rem;
   overflow: hidden;
 }
 
 .headingPrimary {
   margin-bottom: 2rem;
-  font-size: 4.4em;
+  font-size: 3.2rem;
   margin-top: 4.8rem;
   text-transform: uppercase;
   font-weight: 700;
@@ -42,6 +47,7 @@
 
 .heroImg {
   display: flex;
+  grid-column: 2;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   border-radius: 20px;
@@ -49,7 +55,8 @@
 
 .headingImg {
   display: inline-block;
-  width: 48rem;
+  height: 42rem;
+  width: 42rem;
   border-radius: 20px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 }
@@ -59,6 +66,7 @@
 .headingBtn:visited {
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   color: #fff;
   text-decoration: none;
@@ -86,5 +94,96 @@
 
 /* MEDIA QUERY */
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
+  .primaryBox {
+    padding: 3.2rem;
+  }
+  .headingBtn,
+  .headingBtn:link,
+  .headingBtn:visited {
+    font-size: 1.6rem;
+    padding: 1.6rem 1.6rem;
+  }
+
+  .headingImg {
+    height: 36rem;
+    width: 36rem;
+  }
+
+  .headingPrimary {
+    font-size: 2.8rem;
+  }
+
+  .headingDescription {
+    font-size: 2.2rem;
+  }
+}
+@media only screen and (max-width: 1060px) {
+  .primaryBox {
+    padding: 0rem;
+  }
+
+  .headingImg {
+    height: 30rem;
+    width: 30rem;
+  }
+
+  .headingPrimary {
+    font-size: 2.4rem;
+  }
+
+  .headingDescription {
+    font-size: 1.8rem;
+  }
+}
+.headingBtn,
+.headingBtn:link,
+.headingBtn:visited {
+  font-size: 1.6rem;
+  padding: 1.2rem;
+}
+
+@media only screen and (max-width: 915px) {
+  .headingImg {
+    height: 26rem;
+    width: 26rem;
+  }
+
+  .headingPrimary {
+    font-size: 2.2rem;
+  }
+
+  .headingDescription {
+    font-size: 1.6rem;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+  .primaryBox {
+    padding: 0rem 9.6rem;
+    width: 70%;
+
+    /* align-items: center; */
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .primaryBox {
+    padding: 0rem;
+    align-items: start;
+    /* padding: 0rem 9.6rem; */
+  }
+  .headingBtn,
+  .headingBtn:link,
+  .headingBtn:visited {
+    font-size: 1.4rem;
+    /* padding: 0.8rem; */
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding: 3.2rem 9.6rem;
+  }
 }
