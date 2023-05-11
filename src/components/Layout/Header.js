@@ -63,15 +63,15 @@ const Header = (props) => {
   return (
     <Fragment>
       <header className={styles.header}>
-        {/* <Link to='/'>
+        <Link to='/'>
           <img
             className={styles.img}
             src={require('../../images/logo.png')}
             alt='K&E Logo'
           ></img>
-        </Link> */}
-        <MobileNavigation />
-        {/* <Navigation /> */}
+        </Link>
+        {/* <MobileNavigation /> */}
+        <Navigation />
       </header>
       <Outlet />
       <Footer />

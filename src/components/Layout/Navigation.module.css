@@ -134,3 +134,35 @@
   height: 2.4rem;
   color: #f08c00;
 }
+
+@media only screen and (max-width: 1000px) {
+  .link span {
+    font-size: 1.6rem;
+  }
+  .linkDrop span {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .link span {
+    font-size: 1.4rem;
+  }
+  .linkDrop span {
+    font-size: 1.4rem;
+  }
+  .icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    color: #f08c00;
+  }
+  .spanCartWarning {
+    height: 1.6rem;
+    width: 1.6rem;
+    transform: translate3d(20px, -10px, 0);
+    font-size: 1.4rem;
+  }
+
+  .navBarWrapper {
+    gap: 1.6rem;
+  }
+}
