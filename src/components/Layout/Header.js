@@ -70,8 +70,12 @@ const Header = (props) => {
             alt='K&E Logo'
           ></img>
         </Link>
-        <MobileNavigation />
-        {/* <Navigation /> */}
+        <span className={styles.mobileWrapper}>
+          <MobileNavigation />
+        </span>
+        <span className={styles.desktopWrapper}>
+          <Navigation />
+        </span>
       </header>
       <Outlet />
       <Footer />
