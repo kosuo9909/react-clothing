@@ -13,17 +13,21 @@ const MobileNavigation = () => {
   const logoutHandler = (e) => {
     e.preventDefault();
     auth.signOut();
+    setHidden(false);
+
     navigate('/');
+  };
+
+  const removeNav = () => {
+    setHidden(false);
   };
 
   const hiddenHandler = () => {
     setHidden(true);
-    console.log('sethidden true');
   };
 
   const showHiddenHandler = (e) => {
     setHidden(false);
-    console.log('sethidden false');
   };
 
   const showDropHandler = (e) => {
@@ -82,12 +86,12 @@ const MobileNavigation = () => {
         )}
 
         <nav className={styles.flexDiv}>
-          <Link to='/shop' className={styles.link}>
+          <Link to='/shop' onClick={removeNav} className={styles.link}>
             Пазарувай
           </Link>
           <span onClick={showDropHandler} className={styles.linkDrop}>
             Акаунт{' '}
-            {drop ? (
+            {!drop ? (
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
@@ -118,21 +122,33 @@ const MobileNavigation = () => {
                 />
               </svg>
             )}
-            {!drop && (
+            {drop && (
               <div className={styles.dropContent}>
                 {!loginState && (
                   <>
-                    <Link to='/login' className={styles.link}>
+                    <Link
+                      to='/login'
+                      onClick={removeNav}
+                      className={styles.link}
+                    >
                       Login
                     </Link>
-                    <Link to='/register' className={styles.link}>
+                    <Link
+                      to='/register'
+                      onClick={removeNav}
+                      className={styles.link}
+                    >
                       Register
                     </Link>
                   </>
                 )}
                 {loginState && (
                   <>
-                    <Link to='/profile' className={styles.link}>
+                    <Link
+                      to='/profile '
+                      onClick={removeNav}
+                      className={styles.link}
+                    >
                       Profile
                     </Link>
                     <Link onClick={logoutHandler} className={styles.link}>
@@ -143,8 +159,10 @@ const MobileNavigation = () => {
               </div>
             )}
           </span>
-          <Link className={styles.link}>Относно</Link>
-          <Link to='/cart' className={styles.link}>
+          <Link className={styles.link} onClick={removeNav}>
+            Относно
+          </Link>
+          <Link to='/cart' onClick={removeNav} className={styles.link}>
             Количка
             <span className={styles.spanCartWarning}>{cartCount}</span>
           </Link>

@@ -4,8 +4,9 @@ import FetchProfile from '../../api/fetchProfile';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { database } from '../../firebase/firebase';
 import { ref, set } from 'firebase/database';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { hasProfileUpdate } from '../../app/UserSlice';
 
 const Profile = () => {
   const userID = useSelector((state) => state.user.currentUserID);
@@ -13,6 +14,7 @@ const Profile = () => {
   const phoneRef = useRef(null);
   const addressRef = useRef(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const fetchedUsers = useQuery(['userData', userID], () =>
     FetchProfile(userID)
@@ -35,6 +37,13 @@ const Profile = () => {
           ? fetchedUsers.data.phone
           : phoneRef.current.value,
     });
+    if (
+      nameRef.current.value.length > 0 &&
+      addressRef.current.value.length > 0 &&
+      phoneRef.current.value.length > 0
+    ) {
+      dispatch(hasProfileUpdate(true));
+    }
     navigate('/cart');
     // navigate(0);
   };

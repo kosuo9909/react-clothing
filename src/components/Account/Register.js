@@ -46,6 +46,13 @@ const Register = () => {
       setPassword2('');
       return;
     }
+
+    if (password.length < 6) {
+      setError('Your password must be at least 6 characters long.');
+      setPassword('');
+      setPassword2('');
+      return;
+    }
     const isEmail =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
