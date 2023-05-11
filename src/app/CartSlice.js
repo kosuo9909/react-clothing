@@ -13,13 +13,38 @@ export const cartSlice = createSlice({
       state.dummy = !state.dummy;
     },
     add_item: (state, action) => {
-      const { id, price, item, image, description } = action.payload.item;
+      const {
+        id,
+        price,
+        item,
+        image,
+        description,
+        display_size,
+        display_type,
+        operating_system,
+        production_year,
+        ram,
+        storage,
+      } = action.payload.item;
       const existingItem = state.item.find((item) => item.id === id);
       try {
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
-          state.item.push({ id, item, price, image, description, quantity: 1 });
+          state.item.push({
+            id,
+            item,
+            price,
+            image,
+            description,
+            quantity: 1,
+            display_size,
+            display_type,
+            operating_system,
+            production_year,
+            ram,
+            storage,
+          });
         }
         state.total += price;
         state.itemsCount += 1;

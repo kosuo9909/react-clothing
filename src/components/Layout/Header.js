@@ -13,6 +13,7 @@ import {
 import Footer from './Footer';
 import FetchProfile from '../../api/fetchProfile';
 import { useQuery } from '@tanstack/react-query';
+import MobileNavigation from './MobileNavigation';
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -69,7 +70,12 @@ const Header = (props) => {
             alt='K&E Logo'
           ></img>
         </Link>
-        <Navigation />
+        <span className={styles.mobileWrapper}>
+          <MobileNavigation />
+        </span>
+        <span className={styles.desktopWrapper}>
+          <Navigation />
+        </span>
       </header>
       <Outlet />
       <Footer />

@@ -17,3 +17,27 @@
   /* width: 6.4rem; */
   justify-self: end;
 }
+
+.mobileWrapper {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .img {
+    height: 3.2rem;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .img {
+    height: 2rem;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .mobileWrapper {
+    display: block;
+  }
+  .desktopWrapper {
+    display: none;
+  }
+}

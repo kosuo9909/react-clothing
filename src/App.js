@@ -15,6 +15,8 @@ import { useSelector } from 'react-redux';
 import Protected from './components/Protected';
 import ReLogin from './components/Account/Relogin';
 import DeleteProfile from './components/Account/DeleteProfile';
+import ShopEachItem from './components/UI/seasonal-grid/ShopEachItem';
+import ShopItemPage from './pages/ShopEachItemPage';
 function App() {
   // return <RouterProvider router={router} />;
   const isSignedIn = useSelector((state) => state.user.isLoggedIn);
@@ -31,6 +33,7 @@ function App() {
           element: <ShopPage />,
           loader: autumnLoader,
         },
+        { path: 'shop/:itemId', element: <ShopItemPage /> },
         { path: 'register', element: <Register /> },
         { path: 'login', element: <Login /> },
         { path: 'relogin', element: <ReLogin /> },
