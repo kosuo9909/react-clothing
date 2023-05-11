@@ -1,0 +1,49 @@
+.vh100 {
+  min-height: 100vh;
+}
+
+.grid {
+  margin: 0 auto;
+  margin-top: 12.8rem;
+  display: flex;
+  max-width: 120rem;
+  align-items: center;
+  gap: 10rem;
+  padding-top: 9.6rem;
+}
+
+.img {
+  height: 42rem;
+  border-radius: 10px;
+  justify-self: end;
+}
+
+.details {
+  padding: 2rem;
+  height: 42rem;
+  width: 42rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.lightGrey {
+  color: #777;
+}
+.line {
+  display: flex;
+  gap: 2rem;
+  height: 2rem;
+}
+.icon {
+  height: 3rem;
+}
+
+.iconSpec {
+  height: 3rem;
+  margin-right: 0.5rem;
+}

@@ -6,7 +6,7 @@ const ShopPage = () => {
   const items = useLoaderData();
   return (
     <Fragment>
-      <SpringComponent items={Object.values(items)} />
+      <SpringComponent items={items} />
     </Fragment>
   );
 };
