@@ -7,6 +7,7 @@ import { useState } from 'react';
 const MobileNavigation = () => {
   const navigate = useNavigate();
   const [hidden, setHidden] = useState();
+  const [drop, setDrop] = useState(false);
   const cartCount = useSelector((state) => state.cart.itemsCount);
   const loginState = useSelector((state) => state.user.isLoggedIn);
   const logoutHandler = (e) => {
@@ -20,9 +21,14 @@ const MobileNavigation = () => {
     console.log('sethidden true');
   };
 
-  const showHiddenHandler = () => {
+  const showHiddenHandler = (e) => {
     setHidden(false);
     console.log('sethidden false');
+  };
+
+  const showDropHandler = (e) => {
+    setDrop(!drop);
+    console.log(drop);
   };
 
   return (
@@ -50,6 +56,11 @@ const MobileNavigation = () => {
         className={
           !hidden ? `${styles.navBarWrapperHidden}` : `${styles.navBarWrapper}`
         }
+        onClick={(e) => {
+          if (e.target.tagName === 'DIV') {
+            setHidden(false);
+          }
+        }}
       >
         {hidden && (
           <span onClick={showHiddenHandler}>
@@ -74,12 +85,49 @@ const MobileNavigation = () => {
           <Link to='/shop' className={styles.link}>
             Пазарувай
           </Link>
-          <Link to='/profile' className={styles.link}>
-            Акаунт
-          </Link>
-          <Link to='/about' className={styles.link}>
-            Относно
-          </Link>
+          <span onClick={showDropHandler} className={styles.linkDrop}>
+            Акаунт{' '}
+            {drop ? (
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth='1.5'
+                stroke='currentColor'
+                className={styles.arrow}
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75'
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth='1.5'
+                stroke='currentColor'
+                className={styles.arrow}
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
+                />
+              </svg>
+            )}
+            {!drop && (
+              <div className={styles.dropContent}>
+                {/* <span>Login</span>
+              <span>Register</span> */}
+                <span>Profile</span>
+                <span>Logout</span>
+              </div>
+            )}
+          </span>
+          <Link className={styles.link}>Относно</Link>
           <Link to='/cart' className={styles.link}>
             Количка
           </Link>

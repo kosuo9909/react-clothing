@@ -32,7 +32,7 @@
   background-color: rgb(0, 0, 0);
   align-content: center;
   justify-content: center;
-  opacity: 85%;
+  opacity: 90%;
 }
 
 .navBarWrapperHidden {
@@ -40,15 +40,55 @@
 }
 
 .link:hover,
-.link:active {
+.link:active,
+.link:focus {
   cursor: pointer;
   transform: scale(1.3);
   color: #f08c00;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .link {
   transition: all 0.2s ease-in-out;
 
   text-decoration: none;
-  color: #555;
+  color: #999;
+}
+
+.arrow {
+  height: 2rem;
+}
+.linkDrop:hover,
+.linkDrop:active,
+.linkDrop:focus {
+  cursor: pointer;
+  transform: scale(1.3);
+  color: #f08c00;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.linkDrop:hover,
+.linkDrop:active .dropContent {
+  cursor: pointer;
+  transform: scale(1.3);
+  color: #999;
+}
+
+.linkDrop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease-in-out;
+
+  text-decoration: none;
+  color: #999;
+}
+
+.dropContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
