@@ -59,7 +59,7 @@ const Register = () => {
     setPassword('');
     setPassword2('');
     setEmail('');
-    navigate('/shop');
+    navigate('/cart');
     navigate(0);
   };
 

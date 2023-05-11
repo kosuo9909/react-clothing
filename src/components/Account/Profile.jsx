@@ -36,6 +36,7 @@ const Profile = () => {
           : phoneRef.current.value,
     });
     navigate('/cart');
+    // navigate(0);
   };
 
   return (
