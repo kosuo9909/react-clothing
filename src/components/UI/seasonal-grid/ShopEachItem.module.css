@@ -41,6 +41,7 @@
 .lightGrey {
   color: #777;
 }
+
 .line {
   display: flex;
   gap: 2rem;
@@ -48,6 +49,11 @@
 }
 .icon {
   height: 3rem;
+}
+
+.iconPrice {
+  height: 3rem;
+  /* color: #f08c00; */
 }
 
 .iconSpec {
@@ -97,6 +103,7 @@
   .details {
     height: 39rem;
     width: 32rem;
+    padding-bottom: 4rem;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -108,8 +115,8 @@
     width: 30rem;
     font-size: 1.4rem;
     margin-bottom: 2rem;
+    padding-bottom: 4rem;
   }
-
   .button {
     font-size: 1.8rem;
   }

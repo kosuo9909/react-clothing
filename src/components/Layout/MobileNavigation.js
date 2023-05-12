@@ -86,6 +86,9 @@ const MobileNavigation = () => {
         )}
 
         <nav className={styles.flexDiv}>
+          <Link onClick={removeNav} to='/' className={styles.link}>
+            Начало
+          </Link>
           <Link onClick={removeNav} to='/shop' className={styles.link}>
             Пазарувай
           </Link>
@@ -159,9 +162,9 @@ const MobileNavigation = () => {
               </div>
             )}
           </span>
-          <Link className={styles.link} onClick={removeNav}>
+          {/* <Link className={styles.link} onClick={removeNav}>
             Относно
-          </Link>
+          </Link> */}
           <Link to='/cart' onClick={removeNav} className={styles.link}>
             Количка
             <span className={styles.spanCartWarning}>{cartCount}</span>

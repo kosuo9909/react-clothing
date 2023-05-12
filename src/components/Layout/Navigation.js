@@ -193,7 +193,7 @@ const Navigation = () => {
       ) : (
         ''
       )}
-      <div className={styles.btnGroup}>
+      {/* <div className={styles.btnGroup}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -212,7 +212,7 @@ const Navigation = () => {
         <Link className={styles.link} to='shop'>
           <span>Относно</span>
         </Link>
-      </div>
+      </div> */}
       <div className={styles.btnGroup}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
