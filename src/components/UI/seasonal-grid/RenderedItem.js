@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import styles from './SpringComponent.module.css';
 import { useDispatch } from 'react-redux';
 import { add_item } from '../../../app/CartSlice';
@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 
 const RenderedItem = (props) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const addToCartHandler = (e) => {
     e.preventDefault();

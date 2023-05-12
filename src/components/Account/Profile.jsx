@@ -64,7 +64,7 @@ const Profile = () => {
             <div className={styles.group}>
               <div className={styles.group2items}>
                 <label className={styles.label} htmlFor='firstname'>
-                  Име
+                  Имена
                 </label>
                 <input
                   id='firstname'

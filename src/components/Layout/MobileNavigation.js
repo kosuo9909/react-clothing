@@ -162,9 +162,9 @@ const MobileNavigation = () => {
               </div>
             )}
           </span>
-          <Link className={styles.link} onClick={removeNav}>
+          {/* <Link className={styles.link} onClick={removeNav}>
             Относно
-          </Link>
+          </Link> */}
           <Link to='/cart' onClick={removeNav} className={styles.link}>
             Количка
             <span className={styles.spanCartWarning}>{cartCount}</span>

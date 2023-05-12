@@ -41,6 +41,7 @@
 .lightGrey {
   color: #777;
 }
+
 .line {
   display: flex;
   gap: 2rem;
@@ -48,6 +49,11 @@
 }
 .icon {
   height: 3rem;
+}
+
+.iconPrice {
+  height: 3rem;
+  /* color: #f08c00; */
 }
 
 .iconSpec {
@@ -109,7 +115,6 @@
     font-size: 1.4rem;
     margin-bottom: 2rem;
   }
-
   .button {
     font-size: 1.8rem;
   }
