@@ -172,8 +172,7 @@
 @media only screen and (max-width: 810px) {
   .primaryBox {
     padding: 0rem;
-    align-items: start;
-    /* padding: 0rem 9.6rem; */
+    width: 17rem;
   }
   .headingBtn,
   .headingBtn:link,
